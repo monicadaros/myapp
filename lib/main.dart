@@ -3,8 +3,7 @@ import 'package:flutter/material.dart';
 void main () {
   runApp (
     MaterialApp(
-      theme: ThemeData(primarySwatch: Colors.pink,
-      ),
+      theme: ThemeData(primarySwatch: Colors.pink,),
       home: HomePage ()
     ),
   );
@@ -14,7 +13,16 @@ class HomePage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       body:
-        Text("Carteira\n0", textAlign: TextAlign.center),
+        Container(
+          margin: EdgeInsets.all(40.0),
+          padding: EdgeInsets.all(10.0),
+          child: const Text("Carteira\n0",
+            style: TextStyle(
+              fontSize: 40,
+              fontWeight: FontWeight.bold,
+            ),
+          ),
+        ),
         bottomNavigationBar: BottomNavigationBar (
           currentIndex: 0,
           items: const [
