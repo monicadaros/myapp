@@ -23,9 +23,8 @@ class _criptoCoinState extends State<criptoCoin> {
         crossAxisAlignment: CrossAxisAlignment.start,
         mainAxisAlignment: MainAxisAlignment.start,
         children: [
-          Text("Bitcoin"),
-          Text("Etherum "),
-          Text("LiteCoin")
+          Row(
+          ),
         ],
         ),
     );

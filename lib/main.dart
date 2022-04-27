@@ -1,3 +1,4 @@
+import 'dart:collection';
 import 'dart:html';
 import 'package:flutter/material.dart';
 import 'package:myapp/Widgets/criptos.dart';
@@ -17,7 +18,9 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
-  var count = 0;
+  var count = 5000;
+
+  bool visible = true;
 
 
   void increment () {
@@ -35,16 +38,24 @@ class _HomePageState extends State<HomePage> {
               crossAxisAlignment: CrossAxisAlignment.start,
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
-                
-                Text("Carteira\n$count",
-              style: const TextStyle(
-              fontSize: 40,
-              fontWeight: FontWeight.bold,
+                Text("Carteira"),
+              Visibility(
+                  child: Text("$count",
+                  style: const TextStyle(
+                  fontSize: 40,
+                  fontWeight: FontWeight.bold,
+                    ),
+                ),
               ),
-            ),
-                Icon (Icons.visibility)
+                TextButton(
+                  onPressed:() {
+                    setState() {
+                      visible = !visible;
+                      };
+                    },
+                  child: Icon(Icons.visibility))
               ],
-            ),
+          ),
             margin: EdgeInsets.all(40.0),
             padding: EdgeInsets.all(10.0),
           ),
