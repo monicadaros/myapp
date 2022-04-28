@@ -18,13 +18,16 @@ class criptoCoin extends StatefulWidget {
 class _criptoCoinState extends State<criptoCoin> {
   @override
   Widget build(BuildContext context) {
-    return Container(
-      child: Column(
+    return Scaffold(
+      body: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         mainAxisAlignment: MainAxisAlignment.start,
         children: [
-          Row(
-          ),
+          ListTile(
+            leading: Icon(Icons.currency_bitcoin),
+            title: Text("BTC"),
+            subtitle: Text("Bitcoin"),
+          )
         ],
         ),
     );
