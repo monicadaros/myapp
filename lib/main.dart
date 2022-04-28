@@ -20,9 +20,13 @@ class HomePage extends StatefulWidget {
 class _HomePageState extends State<HomePage> {
   var count = 5000;
 
-  bool visible = true;
+  bool show = true;
 
-
+  void showToast () {
+    setState(() {
+      show =! show;
+    });
+  }
   void increment () {
     count++;
     setState(() {
@@ -38,20 +42,18 @@ class _HomePageState extends State<HomePage> {
               crossAxisAlignment: CrossAxisAlignment.start,
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
-                Text("Carteira"),
               Visibility(
-                  child: Text("$count",
-                  style: const TextStyle(
-                  fontSize: 40,
-                  fontWeight: FontWeight.bold,
+                  visible: show,
+                  child: Text("R\$$count ,00",
+                  style: TextStyle(
+                    fontSize: 40,
+                    fontWeight: FontWeight.bold,
                     ),
                 ),
               ),
-                TextButton(
+               TextButton(
                   onPressed:() {
-                    setState() {
-                      visible = !visible;
-                      };
+                      showToast();
                     },
                   child: Icon(Icons.visibility))
               ],
