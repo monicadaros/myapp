@@ -1,11 +1,18 @@
 import 'dart:collection';
 import 'dart:html';
 import 'package:flutter/material.dart';
+import 'package:myapp/Widgets/MyAppBar.dart';
 import 'package:myapp/Widgets/criptos.dart';
 
 void main () {
   runApp (
     MaterialApp(
+      title: 'route_test',
+      debugShowCheckedModeBanner: false,
+      initialRoute: '/HomePage',
+      routes:{
+        '/HomePage':(BuildContext context) => HomePage(),
+      },
       theme: ThemeData(primarySwatch: Colors.pink,),
       home: HomePage ()
     ),
@@ -18,6 +25,9 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
+  
+  var tabTitle = "Carteira";
+
   var count = 5000;
 
   bool show = true;
@@ -36,11 +46,12 @@ class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body:
+      appBar: PreferredSize(child: MyAppBar(), preferredSize: Size(double.infinity, 70),),
+        body:
           Container(
             child: Row(
               crossAxisAlignment: CrossAxisAlignment.start,
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              mainAxisAlignment: MainAxisAlignment.start,
               children: [
               Visibility(
                   visible: show,
