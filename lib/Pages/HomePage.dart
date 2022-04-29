@@ -10,8 +10,6 @@ class HomePage extends StatefulWidget {
 
 class _HomePageState extends State<HomePage> {
   
-  var tabTitle = "Carteira";
-
   var count = 5000;
 
   bool show = true;
@@ -31,34 +29,41 @@ class _HomePageState extends State<HomePage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: PreferredSize(child: MyAppBar(), preferredSize: Size(double.infinity, 70),),
-        body:
-          Container(
-            child: Row(
+      body: Container(
+        margin: EdgeInsets.all(40.0),
+        padding: EdgeInsets.all(10.0),
+
+        child: Column(
+          children: [
+            Row(
               crossAxisAlignment: CrossAxisAlignment.start,
               mainAxisAlignment: MainAxisAlignment.start,
               children: [
-              Visibility(
+                Visibility(
                   visible: show,
-                  child: Text("R\$$count ,00",
-                  style: TextStyle(
-                    fontSize: 40,
-                    fontWeight: FontWeight.bold,
+                  child:Text("R\$$count ,00",
+                    style: TextStyle(
+                      fontSize: 40,
+                      fontWeight: FontWeight.bold,
                     ),
+                  ),
                 ),
-              ),
-               TextButton(
+                TextButton(
                   onPressed:() {
-                      showToast();
-                    },
-                  child: Icon(Icons.visibility))
+                    showToast();
+                  },
+                  child: Icon(Icons.visibility)),
               ],
-          ),
-            margin: EdgeInsets.all(40.0),
-            padding: EdgeInsets.all(10.0),
-          ),
-
-          criptoCoin (),
-          
+            ),
+            Row(
+              children: [
+                criptoCoin(
+                )
+              ],
+            )
+          ]
+        )
+      ),
          bottomNavigationBar: BottomNavigationBar (
           currentIndex: 0,
           items: const [

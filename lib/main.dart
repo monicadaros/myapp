@@ -9,7 +9,7 @@ void main () {
     MaterialApp(
       title: 'route_homepage',
       debugShowCheckedModeBanner: false,
-      initialRoute: '/HomePage',
+      initialRoute: '/criptoCoin',
       routes:{
         '/HomePage':(BuildContext context) => HomePage(),
         '/criptoCoin':(BuildContext context) => criptoCoin(),
