@@ -57,7 +57,7 @@ class _HomePageState extends State<HomePage> {
             ),
             Row(
               children: [
-                criptoCoin(
+                CriptoCoin(
                 )
               ],
             )

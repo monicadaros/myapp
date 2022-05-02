@@ -8,18 +8,17 @@ void main(criptoCoin) {
       home: criptoCoin,)
   );
 }
-class criptoCoin extends StatefulWidget {
-  const criptoCoin({ Key? key }) : super(key: key);
+class CriptoCoin extends StatefulWidget {
+  const CriptoCoin({ Key? key }) : super(key: key);
 
   @override
-  State<criptoCoin> createState() => _criptoCoinState();
+  State<CriptoCoin> createState() => _CriptoCoinState();
 }
 
-class _criptoCoinState extends State<criptoCoin> {
+class _CriptoCoinState extends State<CriptoCoin> {
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      body: Column(
+    return Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         mainAxisAlignment: MainAxisAlignment.start,
         children: [
@@ -29,7 +28,6 @@ class _criptoCoinState extends State<criptoCoin> {
             subtitle: Text("Bitcoin"),
           )
         ],
-        ),
-    );
+        );
   }
 }
