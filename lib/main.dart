@@ -1,7 +1,8 @@
 import 'dart:collection';
 import 'package:flutter/material.dart';
 import 'package:myapp/Pages/HomePage.dart';
-import 'package:myapp/Widgets/criptos.dart';
+import 'package:myapp/Widgets/CryptoList.dart';
+import 'package:myapp/Widgets/CryptoModel.dart';
 
 
 void main () {
@@ -9,10 +10,10 @@ void main () {
     MaterialApp(
       title: 'route_homepage',
       debugShowCheckedModeBanner: false,
-      initialRoute: '/HomePage',
+      initialRoute: '/CryptoList',
       routes:{
         '/HomePage':(BuildContext context) => HomePage(),
-        '/criptoCoin':(BuildContext context) => criptoCoin(),
+        '/CryptoList':(BuildContext context) => CryptoList(),
       },
       theme: ThemeData(primarySwatch: Colors.pink,),
     ),
