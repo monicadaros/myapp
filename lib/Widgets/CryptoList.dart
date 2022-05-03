@@ -1,3 +1,5 @@
+import 'dart:html';
+
 import 'package:flutter/material.dart';
 
 class CryptoList extends StatefulWidget {
@@ -20,7 +22,14 @@ class _CryptoListState extends State<CryptoList> {
               leading: Icon(Icons.currency_bitcoin),
               title: Text("ETH"),
               subtitle: Text("Ethereum"),
-              trailing: Text("R\$50.000,00"),
+              trailing: Column(
+                children: [
+                  Text("R\$50.000,00"),
+                  Text("-75%",
+                    style: DefaultTextStyle.of(context).style.apply(fontSizeFactor: 0.23),
+                   )
+                ],
+                ),
             ),
 
             ListTile(

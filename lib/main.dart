@@ -15,7 +15,6 @@ void main () {
         '/HomePage':(BuildContext context) => HomePage(),
         '/CryptoList':(BuildContext context) => CryptoList(),
       },
-      theme: ThemeData(primarySwatch: Colors.pink,),
     ),
   );
 }
