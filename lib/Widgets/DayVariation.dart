@@ -1,17 +1,10 @@
-import 'package:flutter/material.dart';
 
-class DayVariation extends StatefulWidget {
-  const DayVariation({ Key? key }) : super(key: key);
+import 'package:myapp/Widgets/CryptoModel.dart';
 
-  @override
-  State<DayVariation> createState() => _DayVariationState();
-}
-
-class _DayVariationState extends State<DayVariation> {
-  @override
-  Widget build(BuildContext context) {
-    return Container(
-      
-    );
-  }
+class DayVariationList {
+  final List<CryptoModel> crypto = [
+    CryptoModel(AbbreviationCrypto: "BTC", NameCrypto: "Bitcoin", VariationCrypto: 75),
+    CryptoModel(AbbreviationCrypto: "LTC", NameCrypto: "Litecoin", VariationCrypto: -15),
+    CryptoModel(AbbreviationCrypto: "ETH", NameCrypto: "Etherum", VariationCrypto: 25),
+  ];
 }

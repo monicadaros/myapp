@@ -1,6 +1,6 @@
 import 'dart:html';
-
 import 'package:flutter/material.dart';
+import 'package:myapp/Widgets/DayVariation.dart';
 
 class CryptoList extends StatefulWidget {
   const CryptoList({ Key? key }) : super(key: key);
@@ -10,9 +10,18 @@ class CryptoList extends StatefulWidget {
 }
 
 class _CryptoListState extends State<CryptoList> {
+  
+  final crypto = DayVariationList().crypto;
+
   @override
   Widget build(BuildContext context) {
     bool show = true;
+
+void showToast () {
+    setState(() {
+      show =! show;
+    });
+  }
 
     return Material(
         child: Column(
@@ -25,8 +34,8 @@ class _CryptoListState extends State<CryptoList> {
               ), 
               child: ListTile(
                 leading: Icon(Icons.currency_bitcoin),
-                title: Text("ETH"),
-                subtitle: Text("Ethereum"),
+                title: Text(crypto[0].AbbreviationCrypto),
+                subtitle: Text(crypto[0].NameCrypto),
                 trailing: Visibility(
                   visible: show,
                   child: Column(
@@ -36,10 +45,15 @@ class _CryptoListState extends State<CryptoList> {
                         child: Text("R\$50.000,00"),
                       ),
                       Container(
-                        child: const Text("75%"),
-                        decoration: BoxDecoration(
-                          color: 0 > 0 ? Colors.green : Colors.red),
+                        child: Visibility(
+                          visible: show,
+                          child: DecoratedBox (
+                          decoration: BoxDecoration(
+                            color: crypto[0].VariationCrypto > 0 ? Colors.green : Colors.red),
+                          child: Text(crypto[0].VariationCrypto.toString()+"%"),
+                          ),
                         ),
+                      ),
                     ],
                   ),
                 ),
