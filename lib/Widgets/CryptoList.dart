@@ -21,7 +21,7 @@ class _CryptoListState extends State<CryptoList> {
           children: <Widget>[
             DefaultTextStyle(
               style: TextStyle(
-                color: Colors.green
+                color: Colors.black
               ), 
               child: ListTile(
                 leading: Icon(Icons.currency_bitcoin),
@@ -33,11 +33,13 @@ class _CryptoListState extends State<CryptoList> {
                     children: [
                       Title(
                         color: Colors.black, 
-                        child: Text("R\$50.000,00")
+                        child: Text("R\$50.000,00"),
                       ),
-                      Row(
-                        
-                      ),
+                      Container(
+                        child: const Text("75%"),
+                        decoration: BoxDecoration(
+                          color: 0 > 0 ? Colors.green : Colors.red),
+                        ),
                     ],
                   ),
                 ),
