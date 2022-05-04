@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:myapp/Widgets/MyAppBar.dart';
 import 'package:myapp/Widgets/CryptoModel.dart';
+import 'package:myapp/Widgets/CryptoList.dart';
 
 class HomePage extends StatefulWidget { 
 
@@ -55,12 +56,15 @@ class _HomePageState extends State<HomePage> {
                   child: Icon(Icons.visibility)),
               ],
             ),
-           // Row(
-             // children: [
-               // CryptoModel(
-                //),
-              //],
-           // )
+            Row(
+             children: [
+              Positioned(
+                 left: 0,
+                 right: 0,
+                 child: CryptoList(),
+              ),
+            ],
+           )
           ]
         )
       ),

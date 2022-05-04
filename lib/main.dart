@@ -10,11 +10,12 @@ void main () {
     MaterialApp(
       title: 'route_homepage',
       debugShowCheckedModeBanner: false,
-      initialRoute: '/CryptoList',
+      initialRoute: '/HomePage',
       routes:{
         '/HomePage':(BuildContext context) => HomePage(),
         '/CryptoList':(BuildContext context) => CryptoList(),
       },
+      theme: ThemeData(primarySwatch: Colors.pink,),
     ),
   );
 }

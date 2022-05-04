@@ -12,42 +12,57 @@ class CryptoList extends StatefulWidget {
 class _CryptoListState extends State<CryptoList> {
   @override
   Widget build(BuildContext context) {
+    bool show = true;
+
     return Material(
-      child: SizedBox(
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
-          mainAxisSize: MainAxisSize.min,
+          mainAxisAlignment : MainAxisAlignment.spaceBetween,
           children: <Widget>[
-            ListTile(
-              leading: Icon(Icons.currency_bitcoin),
-              title: Text("ETH"),
-              subtitle: Text("Ethereum"),
-              trailing: Column(
-                children: [
-                  Text("R\$50.000,00"),
-                  Text("-75%",
-                    style: DefaultTextStyle.of(context).style.apply(fontSizeFactor: 0.23),
-                   )
-                ],
+            DefaultTextStyle(
+              style: TextStyle(
+                color: Colors.green
+              ), 
+              child: ListTile(
+                leading: Icon(Icons.currency_bitcoin),
+                title: Text("ETH"),
+                subtitle: Text("Ethereum"),
+                trailing: Visibility(
+                  visible: show,
+                  child: Column(
+                    children: [
+                      Title(
+                        color: Colors.black, 
+                        child: Text("R\$50.000,00")
+                      ),
+                      Row(
+                        
+                      ),
+                    ],
+                  ),
                 ),
             ),
-
-            ListTile(
-              leading: Icon(Icons.currency_bitcoin),
-              title: Text("BTC"),
-              subtitle: Text("Bitcoin"),
-              trailing: Text("R\$50.000,00"),
             ),
-
-            ListTile(
-              leading: Icon(Icons.currency_bitcoin),
-              title: Text("LTC"),
-              subtitle: Text("Litecoin"),
-              trailing: Text("R\$50.000,00"),
-            )
-          ],
+          ]
         ),
-      ),
     );
   }
 }
+              
+                            
+     
+
+//           ListTile(
+//              leading: Icon(Icons.currency_bitcoin),
+  //            title: Text("BTC"),
+    //          subtitle: Text("Bitcoin"),
+      //        trailing: Text("R\$50.000,00"),
+        //    ),
+//
+  //          ListTile(
+    //          leading: Icon(Icons.currency_bitcoin),
+      //        title: Text("LTC"),
+        //      subtitle: Text("Litecoin"),
+          //    trailing: Text("R\$50.000,00"),
+            //)
+ 
