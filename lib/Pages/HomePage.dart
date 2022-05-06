@@ -1,47 +1,50 @@
 import 'package:flutter/material.dart';
 import 'package:myapp/Widgets/MyAppBar.dart';
-import 'package:myapp/Widgets/CryptoList.dart';
+import 'package:myapp/Widgets/crypto_btc.dart';
+import 'package:myapp/Widgets/crypto_eth.dart';
+import 'package:myapp/Widgets/crypto_ltc.dart';
+import 'package:myapp/Widgets/crypto_eth.dart';
 
-class HomePage extends StatefulWidget { 
-
+class HomePage extends StatefulWidget {
   @override
   State<HomePage> createState() => _HomePageState();
 }
 
 class _HomePageState extends State<HomePage> {
-  
   var count = 5000;
 
   bool show = true;
 
-  void showToast () {
+  void showToast() {
     setState(() {
-      show =! show;
+      show = !show;
     });
   }
-  void increment () {
+
+  void increment() {
     count++;
-    setState(() {
-    });
+    setState(() {});
   }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: PreferredSize(child: MyAppBar(), preferredSize: Size(double.infinity, 70),),
+      appBar: PreferredSize(
+        child: MyAppBar(),
+        preferredSize: Size(double.infinity, 70),
+      ),
       body: Container(
-        margin: EdgeInsets.all(40.0),
-        padding: EdgeInsets.all(10.0),
-
-        child: Column(
-          children: [
+          // margin: EdgeInsets.all(40.0),
+          padding: EdgeInsets.all(10.0),
+          child: Column(children: [
             Row(
               crossAxisAlignment: CrossAxisAlignment.start,
               mainAxisAlignment: MainAxisAlignment.start,
               children: [
                 Visibility(
                   visible: show,
-                  child:Text("R\$$count ,00",
+                  child: Text(
+                    "R\$$count,00",
                     style: TextStyle(
                       fontSize: 40,
                       fontWeight: FontWeight.bold,
@@ -49,32 +52,31 @@ class _HomePageState extends State<HomePage> {
                   ),
                 ),
                 TextButton(
-                  onPressed:() {
-                    showToast();
-                  },
-                  child: Icon(Icons.visibility)),
+                    onPressed: () {
+                      showToast();
+                    },
+                    child: Icon(Icons.visibility)),
               ],
             ),
-            const CryptoList()
-          ]
-        )
+            const CryptoBTC(),
+            const CryptoLTC(),
+            const CryptoETH(),
+          ])),
+      bottomNavigationBar: BottomNavigationBar(
+        currentIndex: 0,
+        items: const [
+          BottomNavigationBarItem(
+            icon: Icon(Icons.home),
+            label: "Home",
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.card_travel),
+            label: "Carteira",
+          ),
+          BottomNavigationBarItem(
+              icon: Icon(Icons.bar_chart_rounded), label: "Movimentações"),
+        ],
       ),
-         bottomNavigationBar: BottomNavigationBar (
-          currentIndex: 0,
-          items: const [
-            BottomNavigationBarItem (
-              icon: Icon(Icons.home),
-              label: "Home",
-            ),
-            BottomNavigationBarItem (
-              icon: Icon(Icons.card_travel),
-              label: "Carteira",
-            ),
-            BottomNavigationBarItem (
-              icon: Icon(Icons.bar_chart_rounded),
-              label: "Movimentações"),
-          ],
-        ),
     );
   }
 }
