@@ -13,11 +13,11 @@ class _CryptoETHState extends State<CryptoETH> {
 
   @override
   Widget build(BuildContext context) {
-    bool show = true;
+    bool visibleEth = true;
 
     void showToast() {
       setState(() {
-        show = !show;
+        visibleEth = !visibleEth;
       });
     }
 
@@ -39,7 +39,7 @@ class _CryptoETHState extends State<CryptoETH> {
                   title: Text(crypto[2].abbreviationCrypto),
                   subtitle: Text(crypto[2].nameCrypto),
                   trailing: Visibility(
-                    visible: show,
+                    visible: visibleEth,
                     child: Column(
                       children: [
                         Title(
@@ -48,7 +48,7 @@ class _CryptoETHState extends State<CryptoETH> {
                         ),
                         Container(
                           child: Visibility(
-                            visible: show,
+                            visible: visibleEth,
                             child: DecoratedBox(
                               decoration: BoxDecoration(
                                   color: crypto[2].variationCrypto > 0

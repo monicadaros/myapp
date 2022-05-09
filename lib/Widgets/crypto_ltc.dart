@@ -13,11 +13,11 @@ class _CryptoLTCState extends State<CryptoLTC> {
 
   @override
   Widget build(BuildContext context) {
-    bool show = true;
+    bool visibleLtc = true;
 
     void showToast() {
       setState(() {
-        show = !show;
+        visibleLtc = !visibleLtc;
       });
     }
 
@@ -39,7 +39,7 @@ class _CryptoLTCState extends State<CryptoLTC> {
                   title: Text(crypto[1].abbreviationCrypto),
                   subtitle: Text(crypto[1].nameCrypto),
                   trailing: Visibility(
-                    visible: show,
+                    visible: visibleLtc,
                     child: Column(
                       children: [
                         Title(
@@ -48,7 +48,7 @@ class _CryptoLTCState extends State<CryptoLTC> {
                         ),
                         Container(
                           child: Visibility(
-                            visible: show,
+                            visible: visibleLtc,
                             child: DecoratedBox(
                               decoration: BoxDecoration(
                                   color: crypto[1].variationCrypto > 0

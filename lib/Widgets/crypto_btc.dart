@@ -2,7 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:myapp/Widgets/day_variation.dart';
 
 class CryptoBTC extends StatefulWidget {
-  const CryptoBTC({Key? key}) : super(key: key);
+  final bool show;
+  const CryptoBTC({Key? key, required this.show}) : super(key: key);
 
   @override
   State<CryptoBTC> createState() => _CryptoBTCState();
@@ -13,14 +14,6 @@ class _CryptoBTCState extends State<CryptoBTC> {
 
   @override
   Widget build(BuildContext context) {
-    bool show = true;
-
-    void showToast() {
-      setState(() {
-        show = !show;
-      });
-    }
-
     return Material(
       child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
@@ -39,7 +32,7 @@ class _CryptoBTCState extends State<CryptoBTC> {
                   title: Text(crypto[0].abbreviationCrypto),
                   subtitle: Text(crypto[0].nameCrypto),
                   trailing: Visibility(
-                    visible: show,
+                    visible: widget.show,
                     child: Column(
                       children: [
                         Title(
@@ -47,18 +40,17 @@ class _CryptoBTCState extends State<CryptoBTC> {
                           child: const Text("R\$50.000,00"),
                         ),
                         Container(
-                          child: Visibility(
-                            visible: show,
-                            child: DecoratedBox(
-                              decoration: BoxDecoration(
-                                  color: crypto[0].variationCrypto > 0
-                                      ? Colors.green
-                                      : Colors.red),
-                              child: Text(
-                                  crypto[0].variationCrypto.toString() + "%"),
-                            ),
+                            child: Visibility(
+                          visible: widget.show,
+                          child: DecoratedBox(
+                            decoration: BoxDecoration(
+                                color: crypto[0].variationCrypto > 0
+                                    ? Colors.green
+                                    : Colors.red),
+                            child: Text(
+                                crypto[0].variationCrypto.toString() + "%"),
                           ),
-                        ),
+                        )),
                       ],
                     ),
                   ),
@@ -69,21 +61,3 @@ class _CryptoBTCState extends State<CryptoBTC> {
     );
   }
 }
-              
-                            
-     
-
-//           ListTile(
-//              leading: Icon(Icons.currency_bitcoin),
-  //            title: Text("BTC"),
-    //          subtitle: Text("Bitcoin"),
-      //        trailing: Text("R\$50.000,00"),
-        //    ),
-//
-  //          ListTile(
-    //          leading: Icon(Icons.currency_bitcoin),
-      //        title: Text("LTC"),
-        //      subtitle: Text("Litecoin"),
-          //    trailing: Text("R\$50.000,00"),
-            //)
- 

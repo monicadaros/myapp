@@ -10,7 +10,6 @@ void main() {
       initialRoute: '/HomePage',
       routes: {
         '/HomePage': (BuildContext context) => HomePage(),
-        '/CryptoList': (BuildContext context) => CryptoBTC(),
       },
       theme: ThemeData(
         primarySwatch: Colors.pink,
