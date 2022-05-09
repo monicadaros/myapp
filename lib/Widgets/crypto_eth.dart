@@ -2,7 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:myapp/Widgets/day_variation.dart';
 
 class CryptoETH extends StatefulWidget {
-  const CryptoETH({Key? key}) : super(key: key);
+  final bool show;
+  const CryptoETH({Key? key, required this.show}) : super(key: key);
 
   @override
   State<CryptoETH> createState() => _CryptoETHState();
@@ -13,14 +14,6 @@ class _CryptoETHState extends State<CryptoETH> {
 
   @override
   Widget build(BuildContext context) {
-    bool visibleEth = true;
-
-    void showToast() {
-      setState(() {
-        visibleEth = !visibleEth;
-      });
-    }
-
     return Material(
       child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
@@ -39,7 +32,7 @@ class _CryptoETHState extends State<CryptoETH> {
                   title: Text(crypto[2].abbreviationCrypto),
                   subtitle: Text(crypto[2].nameCrypto),
                   trailing: Visibility(
-                    visible: visibleEth,
+                    visible: widget.show,
                     child: Column(
                       children: [
                         Title(
@@ -48,7 +41,7 @@ class _CryptoETHState extends State<CryptoETH> {
                         ),
                         Container(
                           child: Visibility(
-                            visible: visibleEth,
+                            visible: widget.show,
                             child: DecoratedBox(
                               decoration: BoxDecoration(
                                   color: crypto[2].variationCrypto > 0

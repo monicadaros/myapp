@@ -11,7 +11,6 @@ class HomePage extends StatefulWidget {
 
 class _HomePageState extends State<HomePage> {
   var count = 5000;
-
   bool show = true;
 
   void showToast() {
@@ -65,9 +64,15 @@ class _HomePageState extends State<HomePage> {
               ),
             ],
           ),
-          CryptoBTC(show: show),
-          CryptoLTC(),
-          CryptoETH(),
+          CryptoBTC(
+            show: show,
+          ),
+          CryptoETH(
+            show: show,
+          ),
+          CryptoLTC(
+            show: show,
+          ),
         ]),
       ),
       bottomNavigationBar: BottomNavigationBar(

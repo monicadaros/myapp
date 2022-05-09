@@ -2,7 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:myapp/Widgets/day_variation.dart';
 
 class CryptoLTC extends StatefulWidget {
-  const CryptoLTC({Key? key}) : super(key: key);
+  final bool show;
+  const CryptoLTC({Key? key, required this.show}) : super(key: key);
 
   @override
   State<CryptoLTC> createState() => _CryptoLTCState();
@@ -13,14 +14,6 @@ class _CryptoLTCState extends State<CryptoLTC> {
 
   @override
   Widget build(BuildContext context) {
-    bool visibleLtc = true;
-
-    void showToast() {
-      setState(() {
-        visibleLtc = !visibleLtc;
-      });
-    }
-
     return Material(
       child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
@@ -39,7 +32,7 @@ class _CryptoLTCState extends State<CryptoLTC> {
                   title: Text(crypto[1].abbreviationCrypto),
                   subtitle: Text(crypto[1].nameCrypto),
                   trailing: Visibility(
-                    visible: visibleLtc,
+                    visible: widget.show,
                     child: Column(
                       children: [
                         Title(
@@ -48,7 +41,7 @@ class _CryptoLTCState extends State<CryptoLTC> {
                         ),
                         Container(
                           child: Visibility(
-                            visible: visibleLtc,
+                            visible: widget.show,
                             child: DecoratedBox(
                               decoration: BoxDecoration(
                                   color: crypto[1].variationCrypto > 0
