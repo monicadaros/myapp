@@ -40,15 +40,20 @@ class _CryptoETHState extends State<CryptoETH> {
                           child: const Text("R\$50.000,00"),
                         ),
                         Container(
+                          height: 20,
+                          width: 40,
                           child: Visibility(
                             visible: widget.show,
                             child: DecoratedBox(
                               decoration: BoxDecoration(
                                   color: crypto[2].variationCrypto > 0
                                       ? Colors.green
-                                      : Colors.red),
+                                      : Colors.red,
+                                  borderRadius: BorderRadius.circular(20)),
                               child: Text(
-                                  crypto[2].variationCrypto.toString() + "%"),
+                                crypto[2].variationCrypto.toString() + "%",
+                                textAlign: TextAlign.center,
+                              ),
                             ),
                           ),
                         ),
