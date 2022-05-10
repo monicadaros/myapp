@@ -30,6 +30,7 @@ class _CryptoLTCState extends State<CryptoLTC> {
                 style: const TextStyle(color: Colors.black),
                 child: ListTile(
                   leading: const CircleAvatar(
+                    backgroundColor: Colors.white,
                     backgroundImage: AssetImage(CryptoIcon.iconLTC),
                   ),
                   title: Text(crypto[1].abbreviationCrypto),

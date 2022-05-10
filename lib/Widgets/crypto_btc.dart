@@ -30,7 +30,10 @@ class _CryptoBTCState extends State<CryptoBTC> {
                 style: const TextStyle(color: Colors.black),
                 child: ListTile(
                   leading: const CircleAvatar(
-                    backgroundImage: AssetImage(CryptoIcon.iconBTC),
+                    backgroundColor: Colors.white,
+                    backgroundImage: AssetImage(
+                      CryptoIcon.iconBTC,
+                    ),
                   ),
                   title: Text(crypto[0].abbreviationCrypto),
                   subtitle: Text(crypto[0].nameCrypto),

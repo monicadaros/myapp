@@ -30,6 +30,7 @@ class _CryptoETHState extends State<CryptoETH> {
                 style: const TextStyle(color: Colors.black),
                 child: ListTile(
                   leading: const CircleAvatar(
+                    backgroundColor: Colors.white,
                     backgroundImage: AssetImage(CryptoIcon.iconETH),
                   ),
                   title: Text(crypto[2].abbreviationCrypto),

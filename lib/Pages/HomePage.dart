@@ -58,18 +58,18 @@ class _HomePageState extends State<HomePage> {
                   ),
                 ),
               ),
+              TextButton(
+                onPressed: () {
+                  showToast();
+                },
+                child: const Icon(Icons.visibility),
+              ),
               const DecoratedBox(
                 decoration: BoxDecoration(
                   border: Border(
                     bottom: BorderSide(width: 1, color: Colors.grey),
                   ),
                 ),
-              ),
-              TextButton(
-                onPressed: () {
-                  showToast();
-                },
-                child: const Icon(Icons.visibility),
               ),
             ],
           ),
