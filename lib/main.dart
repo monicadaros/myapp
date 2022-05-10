@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:myapp/Pages/HomePage.dart';
-import 'package:myapp/Widgets/crypto_btc.dart';
 
 void main() {
   runApp(
