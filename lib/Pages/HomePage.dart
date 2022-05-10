@@ -5,6 +5,8 @@ import 'package:myapp/Widgets/crypto_eth.dart';
 import 'package:myapp/Widgets/crypto_ltc.dart';
 
 class HomePage extends StatefulWidget {
+  const HomePage({Key? key}) : super(key: key);
+
   @override
   State<HomePage> createState() => _HomePageState();
 }
@@ -33,12 +35,12 @@ class _HomePageState extends State<HomePage> {
       ),
       body: Container(
         // margin: EdgeInsets.all(40.0),
-        padding: EdgeInsets.all(10.0),
+        padding: const EdgeInsets.all(10.0),
         child: Column(children: [
           Row(
             crossAxisAlignment: CrossAxisAlignment.start,
             mainAxisAlignment: MainAxisAlignment.start,
-            children: [
+            children: <Widget>[
               Visibility(
                 visible: show,
                 child: Text(
@@ -53,6 +55,13 @@ class _HomePageState extends State<HomePage> {
                   style: TextStyle(
                     fontSize: 40,
                     fontWeight: FontWeight.normal,
+                  ),
+                ),
+              ),
+              const DecoratedBox(
+                decoration: BoxDecoration(
+                  border: Border(
+                    bottom: BorderSide(width: 1, color: Colors.grey),
                   ),
                 ),
               ),

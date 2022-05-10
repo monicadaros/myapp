@@ -8,7 +8,7 @@ void main() {
       debugShowCheckedModeBanner: false,
       initialRoute: '/HomePage',
       routes: {
-        '/HomePage': (BuildContext context) => HomePage(),
+        '/HomePage': (BuildContext context) => const HomePage(),
       },
       theme: ThemeData(
         primarySwatch: Colors.pink,

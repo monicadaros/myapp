@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:myapp/Shared/themes/app_images.dart';
 import 'package:myapp/Widgets/day_variation.dart';
 
 class CryptoLTC extends StatefulWidget {
@@ -28,7 +29,9 @@ class _CryptoLTCState extends State<CryptoLTC> {
               child: DefaultTextStyle(
                 style: const TextStyle(color: Colors.black),
                 child: ListTile(
-                  leading: const Icon(Icons.currency_bitcoin),
+                  leading: const CircleAvatar(
+                    backgroundImage: AssetImage(CryptoIcon.iconLTC),
+                  ),
                   title: Text(crypto[1].abbreviationCrypto),
                   subtitle: Text(crypto[1].nameCrypto),
                   trailing: Visibility(
@@ -39,7 +42,7 @@ class _CryptoLTCState extends State<CryptoLTC> {
                           color: Colors.black,
                           child: const Text("R\$50.000,00"),
                         ),
-                        Container(
+                        SizedBox(
                           height: 20,
                           width: 40,
                           child: Visibility(

@@ -1,4 +1,3 @@
-import 'package:flutter/cupertino.dart';
 import 'package:myapp/Widgets/crypto_model.dart';
 
 class DayVariationList {

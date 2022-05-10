@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:myapp/Shared/themes/app_images.dart';
 import 'package:myapp/Widgets/day_variation.dart';
 
 class CryptoETH extends StatefulWidget {
@@ -28,7 +29,9 @@ class _CryptoETHState extends State<CryptoETH> {
               child: DefaultTextStyle(
                 style: const TextStyle(color: Colors.black),
                 child: ListTile(
-                  leading: const Icon(Icons.currency_bitcoin),
+                  leading: const CircleAvatar(
+                    backgroundImage: AssetImage(CryptoIcon.iconETH),
+                  ),
                   title: Text(crypto[2].abbreviationCrypto),
                   subtitle: Text(crypto[2].nameCrypto),
                   trailing: Visibility(
@@ -39,7 +42,7 @@ class _CryptoETHState extends State<CryptoETH> {
                           color: Colors.black,
                           child: const Text("R\$50.000,00"),
                         ),
-                        Container(
+                        SizedBox(
                           height: 20,
                           width: 40,
                           child: Visibility(
