@@ -1,16 +1,24 @@
 import 'package:flutter/material.dart';
 
-class MyAppBar extends StatelessWidget {
-  const MyAppBar({Key? key}) : super(key: key);
+class MyAppBar extends StatefulWidget {
+  final String pageName;
 
+  const MyAppBar({Key? key, required this.pageName}) : super(key: key);
+
+  @override
+  State<MyAppBar> createState() => _MyAppBarState();
+}
+
+class _MyAppBarState extends State<MyAppBar> {
   @override
   Widget build(BuildContext context) {
     return AppBar(
-      title: const Text(
-        "Carteira",
+      title: (Text(
+        widget.pageName,
         textAlign: TextAlign.right,
-        style: TextStyle(fontSize: 40, fontWeight: FontWeight.normal),
-      ),
+        style: const TextStyle(fontSize: 20, fontWeight: FontWeight.normal),
+      )),
     );
   }
 }
+//prop

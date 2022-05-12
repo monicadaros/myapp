@@ -23,6 +23,7 @@ class _CryptoBTCState extends State<CryptoBTC> {
             DecoratedBox(
               decoration: const BoxDecoration(
                 border: Border(
+                  top: BorderSide(width: 1, color: Colors.grey),
                   bottom: BorderSide(width: 1, color: Colors.grey),
                 ),
               ),

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:myapp/Widgets/MyAppBar.dart';
+import 'package:myapp/Widgets/bottom_bar.dart';
 import 'package:myapp/Widgets/crypto_btc.dart';
 import 'package:myapp/Widgets/crypto_eth.dart';
 import 'package:myapp/Widgets/crypto_ltc.dart';
@@ -14,6 +15,7 @@ class HomePage extends StatefulWidget {
 class _HomePageState extends State<HomePage> {
   var count = 5000;
   bool show = true;
+  final String pageName = "Carteira";
 
   void showToast() {
     setState(() {
@@ -29,12 +31,13 @@ class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: const PreferredSize(
-        child: MyAppBar(),
-        preferredSize: Size(double.infinity, 70),
+      appBar: PreferredSize(
+        child: MyAppBar(
+          pageName: pageName,
+        ),
+        preferredSize: const Size(double.infinity, 40),
       ),
       body: Container(
-        // margin: EdgeInsets.all(40.0),
         padding: const EdgeInsets.all(10.0),
         child: Column(children: [
           Row(
@@ -84,21 +87,7 @@ class _HomePageState extends State<HomePage> {
           ),
         ]),
       ),
-      bottomNavigationBar: BottomNavigationBar(
-        currentIndex: 0,
-        items: const [
-          BottomNavigationBarItem(
-            icon: Icon(Icons.home),
-            label: "Home",
-          ),
-          BottomNavigationBarItem(
-            icon: Icon(Icons.card_travel),
-            label: "Carteira",
-          ),
-          BottomNavigationBarItem(
-              icon: Icon(Icons.bar_chart_rounded), label: "Movimentações"),
-        ],
-      ),
+      bottomNavigationBar: const MyBottomBar(),
     );
   }
 }
