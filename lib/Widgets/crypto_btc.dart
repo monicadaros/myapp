@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:myapp/Pages/details.dart';
 import 'package:myapp/Shared/themes/app_images.dart';
 import 'package:myapp/Widgets/day_variation.dart';
 
@@ -67,6 +68,9 @@ class _CryptoBTCState extends State<CryptoBTC> {
                       ],
                     ),
                   ),
+                  onTap: () {
+                    Navigator.pushNamed(context, '/details');
+                  },
                 ),
               ),
             ),

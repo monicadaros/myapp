@@ -7,7 +7,7 @@ void main() {
     MaterialApp(
       title: 'route_homepage',
       debugShowCheckedModeBanner: false,
-      initialRoute: '/details',
+      initialRoute: '/HomePage',
       routes: {
         '/HomePage': (BuildContext context) => const HomePage(),
         '/details': (BuildContext context) => const DetailPage(),
