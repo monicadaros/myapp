@@ -16,7 +16,7 @@ class _MyAppBarState extends State<MyAppBar> {
       title: (Text(
         widget.pageName,
         textAlign: TextAlign.right,
-        style: const TextStyle(fontSize: 20, fontWeight: FontWeight.normal),
+        style: const TextStyle(fontWeight: FontWeight.normal),
       )),
     );
   }

@@ -1,71 +1,57 @@
 import 'package:flutter/material.dart';
 import 'package:syncfusion_flutter_charts/charts.dart';
-import 'package:syncfusion_flutter_charts/sparkcharts.dart';
 
-class GraficoTeste extends StatefulWidget {
-  const GraficoTeste({Key? key}) : super(key: key);
+class GraphicBtc extends StatefulWidget {
+  const GraphicBtc({Key? key}) : super(key: key);
 
   @override
-  State<GraficoTeste> createState() => _GraficoTesteState();
+  State<GraphicBtc> createState() => _GraphicBtcState();
 }
 
-class _GraficoTesteState extends State<GraficoTeste> {
-  List<_SalesData> data = [
-    _SalesData('Jan', 35),
-    _SalesData('Feb', 28),
-    _SalesData('Mar', 34),
-    _SalesData('Apr', 32),
-    _SalesData('May', 40)
+class _GraphicBtcState extends State<GraphicBtc> {
+  final List<CapitalDate> data = [
+    CapitalDate('10', 4),
+    CapitalDate('15', 7),
+    CapitalDate('20', 6),
+    CapitalDate('25', 8),
+    CapitalDate('30', 6),
+    CapitalDate('35', 7),
+    CapitalDate('40', 9),
   ];
   @override
   Widget build(BuildContext context) {
-    return Column(children: [
-      //Initialize the chart widget
-      SfCartesianChart(
-          primaryXAxis: CategoryAxis(isVisible: false),
-          backgroundColor: Color.fromARGB(255, 212, 212, 212),
-          // Chart title
-          title: ChartTitle(
-              text: 'R\$1000,00',
-              alignment: ChartAlignment.near,
-              textStyle: const TextStyle(height: 40, color: Colors.black)),
-          // Enable tooltip
-          tooltipBehavior: TooltipBehavior(enable: true),
-          series: <ChartSeries<_SalesData, String>>[
-            LineSeries<_SalesData, String>(
+    return Material(
+      child: Column(children: [
+        SfCartesianChart(
+            primaryXAxis: CategoryAxis(isVisible: false),
+            primaryYAxis: NumericAxis(isVisible: false),
+            backgroundColor: Color.fromARGB(255, 235, 231, 231),
+            title: ChartTitle(
+                text: 'R\$1000,00',
+                alignment: ChartAlignment.near,
+                textStyle: const TextStyle(
+                    color: Colors.black,
+                    fontSize: 30,
+                    fontWeight: FontWeight.bold)),
+            series: <ChartSeries<CapitalDate, String>>[
+              LineSeries<CapitalDate, String>(
                 animationDuration: 1000,
                 dataSource: data,
-                xValueMapper: (_SalesData sales, _) => sales.year,
-                yValueMapper: (_SalesData sales, _) => sales.sales,
-                // Enable data label
-                dataLabelSettings: DataLabelSettings(isVisible: true))
-          ]),
-      Expanded(
-        child: Padding(
-          padding: const EdgeInsets.all(8.0),
-          //Initialize the spark charts widget
-          child: SfSparkLineChart.custom(
-            //Enable the trackball
-            trackball: SparkChartTrackball(
-                activationMode: SparkChartActivationMode.tap),
-            //Enable marker
-            marker:
-                SparkChartMarker(displayMode: SparkChartMarkerDisplayMode.all),
-            //Enable data label
-            labelDisplayMode: SparkChartLabelDisplayMode.all,
-            xValueMapper: (int index) => data[index].year,
-            yValueMapper: (int index) => data[index].sales,
-            dataCount: 5,
-          ),
-        ),
-      )
-    ]);
+                color: Colors.orange,
+                xValueMapper: (CapitalDate data, _) => data.days,
+                yValueMapper: (CapitalDate data, _) => data.marketCapital,
+                dataLabelSettings: const DataLabelSettings(isVisible: false),
+                markerSettings: const MarkerSettings(isVisible: false),
+              ),
+            ]),
+      ]),
+    );
   }
 }
 
-class _SalesData {
-  _SalesData(this.year, this.sales);
+class CapitalDate {
+  CapitalDate(this.days, this.marketCapital);
 
-  final String year;
-  final double sales;
+  final String days;
+  final int marketCapital;
 }

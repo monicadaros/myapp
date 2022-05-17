@@ -16,6 +16,7 @@ class _HomePageState extends State<HomePage> {
   var count = 5000;
   bool show = true;
   final String pageName = "Carteira";
+  var height = AppBar().preferredSize.height;
 
   void showToast() {
     setState(() {
@@ -32,9 +33,7 @@ class _HomePageState extends State<HomePage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: PreferredSize(
-        child: MyAppBar(
-          pageName: pageName,
-        ),
+        child: MyAppBar(pageName: pageName),
         preferredSize: const Size(double.infinity, 40),
       ),
       body: Container(

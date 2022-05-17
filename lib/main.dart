@@ -8,11 +8,11 @@ void main() {
     MaterialApp(
       title: 'route_homepage',
       debugShowCheckedModeBanner: false,
-      initialRoute: '/chart_graphic',
+      initialRoute: '/HomePage',
       routes: {
         '/HomePage': (BuildContext context) => const HomePage(),
         '/details': (BuildContext context) => const DetailPage(),
-        '/chart_graphic': (BuildContext context) => const GraficoTeste(),
+        '/chart_graphic': (BuildContext context) => const GraphicBtc(),
       },
       theme: ThemeData(
         primarySwatch: Colors.pink,
