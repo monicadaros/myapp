@@ -18,6 +18,16 @@ class _GraphicBtcState extends State<GraphicBtc> {
     CapitalDate('35', 7),
     CapitalDate('40', 9),
   ];
+
+  late SelectionBehavior _selectionBehavior;
+
+  @override
+  void initState() {
+    _selectionBehavior =
+        SelectionBehavior(enable: true, toggleSelection: false);
+    super.initState();
+  }
+
   @override
   Widget build(BuildContext context) {
     return Material(
@@ -42,6 +52,7 @@ class _GraphicBtcState extends State<GraphicBtc> {
                 yValueMapper: (CapitalDate data, _) => data.marketCapital,
                 dataLabelSettings: const DataLabelSettings(isVisible: false),
                 markerSettings: const MarkerSettings(isVisible: false),
+                selectionBehavior: _selectionBehavior,
               ),
             ]),
       ]),
