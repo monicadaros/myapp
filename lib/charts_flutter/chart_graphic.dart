@@ -10,13 +10,21 @@ class GraphicBtc extends StatefulWidget {
 
 class _GraphicBtcState extends State<GraphicBtc> {
   final List<CapitalDate> data = [
-    CapitalDate('10', 4),
-    CapitalDate('15', 7),
-    CapitalDate('20', 6),
-    CapitalDate('25', 8),
-    CapitalDate('30', 6),
-    CapitalDate('35', 7),
-    CapitalDate('40', 9),
+    CapitalDate('1', 0),
+    CapitalDate('2', 3),
+    CapitalDate('3', 5),
+    CapitalDate('4', 4),
+    CapitalDate('5', 7),
+    CapitalDate('6', 6),
+    CapitalDate('7', 8),
+    CapitalDate('8', 9),
+    CapitalDate('9', 0),
+    CapitalDate('10', 3),
+    CapitalDate('11', 5),
+    CapitalDate('12', 4),
+    CapitalDate('13', 7),
+    CapitalDate('14', 6),
+    CapitalDate('15', 8),
   ];
 
   late SelectionBehavior _selectionBehavior;
@@ -35,7 +43,7 @@ class _GraphicBtcState extends State<GraphicBtc> {
         SfCartesianChart(
             primaryXAxis: CategoryAxis(isVisible: false),
             primaryYAxis: NumericAxis(isVisible: false),
-            backgroundColor: Color.fromARGB(255, 235, 231, 231),
+            backgroundColor: const Color.fromARGB(255, 235, 231, 231),
             title: ChartTitle(
                 text: 'R\$1000,00',
                 alignment: ChartAlignment.near,
@@ -55,6 +63,7 @@ class _GraphicBtcState extends State<GraphicBtc> {
                 selectionBehavior: _selectionBehavior,
               ),
             ]),
+        OutlinedButton(onPressed: onPressed, child: const Text("5D"))
       ]),
     );
   }

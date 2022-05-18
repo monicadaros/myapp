@@ -15,6 +15,8 @@ class _DetailPageState extends State<DetailPage> {
   String pageName = "Detalhes";
   final crypto = DayVariationList().crypto;
 
+  get child => null;
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -52,6 +54,10 @@ class _DetailPageState extends State<DetailPage> {
                       ),
                     ),
                     const GraphicBtc(),
+                    child[TextButton(
+                      child: const Text("5D"),
+                      onPressed: () {},
+                    )],
                     const ListTile(
                       title: Text(
                         "Informações",
