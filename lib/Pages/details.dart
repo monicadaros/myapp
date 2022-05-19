@@ -54,10 +54,6 @@ class _DetailPageState extends State<DetailPage> {
                       ),
                     ),
                     const GraphicBtc(),
-                    child[TextButton(
-                      child: const Text("5D"),
-                      onPressed: () {},
-                    )],
                     const ListTile(
                       title: Text(
                         "Informações",
