@@ -29,42 +29,44 @@ class _CryptoETHState extends State<CryptoETH> {
               child: DefaultTextStyle(
                 style: const TextStyle(color: Colors.black),
                 child: ListTile(
-                  leading: const CircleAvatar(
-                    backgroundColor: Colors.white,
-                    backgroundImage: AssetImage(CryptoIcon.iconETH),
-                  ),
-                  title: Text(crypto[2].abbreviationCrypto),
-                  subtitle: Text(crypto[2].nameCrypto),
-                  trailing: Visibility(
-                    visible: widget.show,
-                    child: Column(
-                      children: [
-                        Title(
-                          color: Colors.black,
-                          child: const Text("R\$50.000,00"),
-                        ),
-                        SizedBox(
-                          height: 20,
-                          width: 40,
-                          child: Visibility(
-                            visible: widget.show,
-                            child: DecoratedBox(
-                              decoration: BoxDecoration(
-                                  color: crypto[2].variationCrypto > 0
-                                      ? Colors.green
-                                      : Colors.red,
-                                  borderRadius: BorderRadius.circular(20)),
-                              child: Text(
-                                crypto[2].variationCrypto.toString() + "%",
-                                textAlign: TextAlign.center,
+                    leading: const CircleAvatar(
+                      backgroundColor: Colors.white,
+                      backgroundImage: AssetImage(CryptoIcon.iconETH),
+                    ),
+                    title: Text(crypto[2].abbreviationCrypto),
+                    subtitle: Text(crypto[2].nameCrypto),
+                    trailing: Visibility(
+                      visible: widget.show,
+                      child: Column(
+                        children: [
+                          Title(
+                            color: Colors.black,
+                            child: const Text("R\$50.000,00"),
+                          ),
+                          SizedBox(
+                            height: 20,
+                            width: 40,
+                            child: Visibility(
+                              visible: widget.show,
+                              child: DecoratedBox(
+                                decoration: BoxDecoration(
+                                    color: crypto[2].variationCrypto > 0
+                                        ? Colors.green
+                                        : Colors.red,
+                                    borderRadius: BorderRadius.circular(20)),
+                                child: Text(
+                                  crypto[2].variationCrypto.toString() + "%",
+                                  textAlign: TextAlign.center,
+                                ),
                               ),
                             ),
                           ),
-                        ),
-                      ],
+                        ],
+                      ),
                     ),
-                  ),
-                ),
+                    onTap: () {
+                      Navigator.pushNamed(context, '/etherum');
+                    }),
               ),
             ),
           ]),

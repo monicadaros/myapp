@@ -68,7 +68,7 @@ class _CryptoBTCState extends State<CryptoBTC> {
                     ),
                   ),
                   onTap: () {
-                    Navigator.pushNamed(context, '/details');
+                    Navigator.pushNamed(context, '/bitcoin');
                   },
                 ),
               ),

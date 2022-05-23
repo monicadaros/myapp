@@ -1,11 +1,12 @@
 import 'package:flutter/material.dart';
-import 'package:myapp/Widgets/MyAppBar.dart';
+import 'package:myapp/Widgets/my_AppBar.dart';
 import 'package:myapp/Widgets/bottom_bar.dart';
 import 'package:myapp/charts_flutter/chart_graphic.dart';
 import '../Widgets/day_variation.dart';
 
 class DetailPage extends StatefulWidget {
-  const DetailPage({Key? key}) : super(key: key);
+  final String coinName;
+  const DetailPage({Key? key, required this.coinName}) : super(key: key);
 
   @override
   State<DetailPage> createState() => _DetailPageState();
@@ -43,14 +44,15 @@ class _DetailPageState extends State<DetailPage> {
                   crossAxisAlignment: CrossAxisAlignment.center,
                   verticalDirection: VerticalDirection.down,
                   children: [
-                    const ListTile(
-                      title: Text(
+                    ListTile(
+                      title: const Text(
                         "Moeda",
                         style: TextStyle(fontSize: 40, color: Colors.black),
                       ),
                       subtitle: Text(
-                        "Bitcoin",
-                        style: TextStyle(fontSize: 30, color: Colors.black),
+                        widget.coinName,
+                        style:
+                            const TextStyle(fontSize: 30, color: Colors.black),
                       ),
                     ),
                     const GraphicBtc(),
@@ -61,17 +63,17 @@ class _DetailPageState extends State<DetailPage> {
                       ),
                     ),
                     const Divider(),
-                    const ListTile(
+                    ListTile(
                       title: Text(
-                        "Bitcoin",
-                        style: TextStyle(
+                        widget.coinName,
+                        style: const TextStyle(
                           fontSize: 20,
                           fontWeight: FontWeight.bold,
                           color: Color.fromARGB(255, 85, 83, 83),
                         ),
                       ),
-                      subtitle: Text("Valor Atual"),
-                      trailing: Text("R\$20.0000,00"),
+                      subtitle: const Text("Valor Atual"),
+                      trailing: const Text("R\$20.0000,00"),
                     ),
                     ListTile(
                       title: const Text(

@@ -38,10 +38,12 @@ class _GraphicBtcState extends State<GraphicBtc> {
 
   chartButtons(String buttonName, int numberSpots) {
     return Padding(
-      padding: const EdgeInsets.symmetric(horizontal: 2),
+      padding: const EdgeInsets.symmetric(horizontal: 6),
       child: OutlinedButton(
           style: ButtonStyle(
-              backgroundColor: MaterialStateProperty.all(Colors.grey)),
+              backgroundColor: MaterialStateProperty.all(
+            const Color.fromARGB(255, 235, 231, 231),
+          )),
           onPressed: () {
             callDataCharts(numberSpots);
           },

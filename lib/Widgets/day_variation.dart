@@ -12,3 +12,8 @@ class DayVariationList {
         abbreviationCrypto: "ETH", nameCrypto: "Etherum", variationCrypto: 25),
   ];
 }
+
+class InfoDetailsPage {
+  String detailCrypto;
+  InfoDetailsPage({required this.detailCrypto});
+}

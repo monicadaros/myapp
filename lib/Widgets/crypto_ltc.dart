@@ -29,42 +29,44 @@ class _CryptoLTCState extends State<CryptoLTC> {
               child: DefaultTextStyle(
                 style: const TextStyle(color: Colors.black),
                 child: ListTile(
-                  leading: const CircleAvatar(
-                    backgroundColor: Colors.white,
-                    backgroundImage: AssetImage(CryptoIcon.iconLTC),
-                  ),
-                  title: Text(crypto[1].abbreviationCrypto),
-                  subtitle: Text(crypto[1].nameCrypto),
-                  trailing: Visibility(
-                    visible: widget.show,
-                    child: Column(
-                      children: [
-                        Title(
-                          color: Colors.black,
-                          child: const Text("R\$50.000,00"),
-                        ),
-                        SizedBox(
-                          height: 20,
-                          width: 40,
-                          child: Visibility(
-                            visible: widget.show,
-                            child: DecoratedBox(
-                              decoration: BoxDecoration(
-                                  color: crypto[1].variationCrypto > 0
-                                      ? Colors.green
-                                      : Colors.red,
-                                  borderRadius: BorderRadius.circular(20)),
-                              child: Text(
-                                crypto[1].variationCrypto.toString() + "%",
-                                textAlign: TextAlign.center,
+                    leading: const CircleAvatar(
+                      backgroundColor: Colors.white,
+                      backgroundImage: AssetImage(CryptoIcon.iconLTC),
+                    ),
+                    title: Text(crypto[1].abbreviationCrypto),
+                    subtitle: Text(crypto[1].nameCrypto),
+                    trailing: Visibility(
+                      visible: widget.show,
+                      child: Column(
+                        children: [
+                          Title(
+                            color: Colors.black,
+                            child: const Text("R\$50.000,00"),
+                          ),
+                          SizedBox(
+                            height: 20,
+                            width: 40,
+                            child: Visibility(
+                              visible: widget.show,
+                              child: DecoratedBox(
+                                decoration: BoxDecoration(
+                                    color: crypto[1].variationCrypto > 0
+                                        ? Colors.green
+                                        : Colors.red,
+                                    borderRadius: BorderRadius.circular(20)),
+                                child: Text(
+                                  crypto[1].variationCrypto.toString() + "%",
+                                  textAlign: TextAlign.center,
+                                ),
                               ),
                             ),
                           ),
-                        ),
-                      ],
+                        ],
+                      ),
                     ),
-                  ),
-                ),
+                    onTap: () {
+                      Navigator.pushNamed(context, '/litecoin');
+                    }),
               ),
             ),
           ]),
