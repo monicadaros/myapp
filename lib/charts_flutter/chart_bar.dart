@@ -1,9 +1,9 @@
-import 'dart:math';
 import 'package:flutter/material.dart';
 import 'package:syncfusion_flutter_charts/charts.dart';
+import 'chart_line.dart';
 
 class BarGraphic extends StatefulWidget {
-  const BarGraphic({ Key? key }) : super(key: key);
+  const BarGraphic({Key? key}) : super(key: key);
 
   @override
   State<BarGraphic> createState() => _BarGraphicState();
@@ -12,7 +12,7 @@ class BarGraphic extends StatefulWidget {
 class _BarGraphicState extends State<BarGraphic> {
   @override
   Widget build(BuildContext context) {
-  return Material(
+    return Material(
       child: Column(children: [
         SfCartesianChart(
             primaryXAxis: CategoryAxis(isVisible: false),
@@ -26,9 +26,9 @@ class _BarGraphicState extends State<BarGraphic> {
                     fontSize: 30,
                     fontWeight: FontWeight.bold)),
             series: <ChartSeries<CapitalDate, DateTime>>[
-              LineSeries<CapitalDate, DateTime>(
+              BarSeries<CapitalDate, DateTime>(
                 animationDuration: 1000,
-                dataSource: data,
+                dataSource: const <CapitalDate>[],
                 color: Colors.orange,
                 xValueMapper: (CapitalDate data, _) => data.days,
                 yValueMapper: (CapitalDate data, _) => data.marketCapital,
@@ -36,5 +36,7 @@ class _BarGraphicState extends State<BarGraphic> {
                 markerSettings: const MarkerSettings(isVisible: false),
               ),
             ]),
+      ]),
+    );
   }
 }

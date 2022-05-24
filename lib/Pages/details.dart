@@ -38,7 +38,7 @@ class _DetailPageState extends State<DetailPage> {
             ),
             child: SizedBox(
               child: Card(
-                elevation: 10,
+                elevation: 20,
                 child: Column(
                   mainAxisAlignment: MainAxisAlignment.start,
                   crossAxisAlignment: CrossAxisAlignment.center,
