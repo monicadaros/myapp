@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:myapp/Widgets/my_AppBar.dart';
+import 'package:myapp/Widgets/my_app_bar.dart';
 import 'package:myapp/Widgets/bottom_bar.dart';
-import 'package:myapp/charts_flutter/chart_graphic.dart';
+import 'package:myapp/charts_flutter/chart_line.dart';
 import '../Widgets/day_variation.dart';
 
 class DetailPage extends StatefulWidget {
@@ -38,7 +38,7 @@ class _DetailPageState extends State<DetailPage> {
             ),
             child: SizedBox(
               child: Card(
-                elevation: 20,
+                elevation: 10,
                 child: Column(
                   mainAxisAlignment: MainAxisAlignment.start,
                   crossAxisAlignment: CrossAxisAlignment.center,
@@ -55,7 +55,7 @@ class _DetailPageState extends State<DetailPage> {
                             const TextStyle(fontSize: 30, color: Colors.black),
                       ),
                     ),
-                    const GraphicBtc(),
+                    const LineGraphic(),
                     const ListTile(
                       title: Text(
                         "Informações",

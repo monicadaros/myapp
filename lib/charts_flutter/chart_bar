@@ -1,0 +1,40 @@
+import 'dart:math';
+import 'package:flutter/material.dart';
+import 'package:syncfusion_flutter_charts/charts.dart';
+
+class BarGraphic extends StatefulWidget {
+  const BarGraphic({ Key? key }) : super(key: key);
+
+  @override
+  State<BarGraphic> createState() => _BarGraphicState();
+}
+
+class _BarGraphicState extends State<BarGraphic> {
+  @override
+  Widget build(BuildContext context) {
+  return Material(
+      child: Column(children: [
+        SfCartesianChart(
+            primaryXAxis: CategoryAxis(isVisible: false),
+            primaryYAxis: NumericAxis(isVisible: false),
+            backgroundColor: const Color.fromARGB(255, 235, 231, 231),
+            title: ChartTitle(
+                text: ("R\$1000,00"),
+                alignment: ChartAlignment.near,
+                textStyle: const TextStyle(
+                    color: Colors.black,
+                    fontSize: 30,
+                    fontWeight: FontWeight.bold)),
+            series: <ChartSeries<CapitalDate, DateTime>>[
+              LineSeries<CapitalDate, DateTime>(
+                animationDuration: 1000,
+                dataSource: data,
+                color: Colors.orange,
+                xValueMapper: (CapitalDate data, _) => data.days,
+                yValueMapper: (CapitalDate data, _) => data.marketCapital,
+                dataLabelSettings: const DataLabelSettings(isVisible: false),
+                markerSettings: const MarkerSettings(isVisible: false),
+              ),
+            ]),
+  }
+}
