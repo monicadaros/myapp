@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:myapp/Widgets/my_app_bar.dart';
 import 'package:myapp/Widgets/bottom_bar.dart';
+import 'package:myapp/charts_flutter/chart_bar.dart';
 import 'package:myapp/charts_flutter/chart_line.dart';
 import '../Widgets/day_variation.dart';
 
@@ -15,6 +16,11 @@ class DetailPage extends StatefulWidget {
 class _DetailPageState extends State<DetailPage> {
   String pageName = "Detalhes";
   final crypto = DayVariationList().crypto;
+  void _replace(bool replace) {
+    setState(() => select = replace);
+  }
+
+  bool select = false;
 
   get child => null;
 
@@ -54,8 +60,15 @@ class _DetailPageState extends State<DetailPage> {
                         style:
                             const TextStyle(fontSize: 30, color: Colors.black),
                       ),
+                      trailing: IconButton(
+                          onPressed: () => _replace(!select),
+                          icon: select
+                              ? const Icon(Icons.show_chart)
+                              : const Icon(Icons.bar_chart)),
                     ),
-                    const LineGraphic(),
+                    Center(
+                      child: select ? const BarGraphic() : const LineGraphic(),
+                    ),
                     const ListTile(
                       title: Text(
                         "Informações",
