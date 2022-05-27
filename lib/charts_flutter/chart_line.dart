@@ -1,6 +1,7 @@
 import 'dart:math';
 import 'package:flutter/material.dart';
 import 'package:syncfusion_flutter_charts/charts.dart';
+import 'package:myapp/Widgets/model_charts.dart';
 
 class LineGraphic extends StatefulWidget {
   const LineGraphic({Key? key}) : super(key: key);
@@ -94,11 +95,4 @@ class _LineGraphicState extends State<LineGraphic> {
       ]),
     );
   }
-}
-
-class CapitalDate {
-  CapitalDate(this.days, this.marketCapital);
-
-  final DateTime days;
-  final int marketCapital;
 }

@@ -1,4 +1,4 @@
-import 'package:myapp/Widgets/crypto_model.dart';
+import 'package:myapp/Widgets/model_crypto.dart';
 
 class DayVariationList {
   final List<CryptoModel> crypto = [
