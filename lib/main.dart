@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:myapp/Pages/conversion.dart';
 import 'package:myapp/Pages/home_page.dart';
 import 'package:myapp/Pages/details.dart';
 
@@ -7,8 +8,9 @@ void main() {
     MaterialApp(
       title: 'route_homepage',
       debugShowCheckedModeBanner: false,
-      initialRoute: '/homePage',
+      initialRoute: '/conversion',
       routes: {
+        '/conversion': (BuildContext context) => const ConversionCoin(),
         '/homePage': (BuildContext context) => const HomePage(),
         '/bitcoin': (BuildContext context) => const DetailPage(
               coinName: "Bitcoin",
