@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:myapp/Widgets/my_app_bar.dart';
 
 class ConversionCoin extends StatefulWidget {
   const ConversionCoin({Key? key}) : super(key: key);
@@ -8,40 +9,25 @@ class ConversionCoin extends StatefulWidget {
 }
 
 class _ConversionCoinState extends State<ConversionCoin> {
+  String pagename = "";
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: PreferredSize(
+          child: MyAppBar(pageName: pagename),
+          preferredSize: const Size(double.infinity, 50)),
       body: SingleChildScrollView(
-        child: Container(
-          padding: const EdgeInsets.all(10.0),
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            mainAxisSize: MainAxisSize.max,
-            children: [
-              Title(
-                color: Colors.black,
-                child: const Text(
-                  "Conversor de Moedas",
-                  textAlign: TextAlign.center,
-                  style: TextStyle(height: 30),
-                ),
+        child: Center(
+          child: Title(
+            color: Colors.black,
+            child: const Text(
+              "Conversão de Moedas",
+              style: TextStyle(
+                fontSize: 25,
+                fontWeight: FontWeight.bold,
               ),
-              const Text("Converter de:"),
-              const Form(child: Text("teste")),
-              const Text("Para receber em:"),
-              Padding(
-                  padding: const EdgeInsets.symmetric(horizontal: 6),
-                  child: OutlinedButton(
-                    onPressed: (() {
-                      debugDumpApp();
-                    }),
-                    child: const Text(
-                      "Confirmar",
-                      style: TextStyle(
-                          color: Colors.white, backgroundColor: Colors.pink),
-                    ),
-                  ))
-            ],
+              textAlign: TextAlign.center,
+            ),
           ),
         ),
       ),
