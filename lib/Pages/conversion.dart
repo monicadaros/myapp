@@ -64,12 +64,14 @@ class _ConversionCoinState extends State<ConversionCoin> {
                         }),
                   ],
                 ),
-                Row(mainAxisAlignment: MainAxisAlignment.center, children: [
-                  convertButton("25%"),
-                  convertButton("50%"),
-                  convertButton("75%"),
-                  convertButton("100%"),
-                ]),
+                Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: const [
+                      ConvertButton(buttonName: "25%"),
+                      ConvertButton(buttonName: "50%"),
+                      ConvertButton(buttonName: "75%"),
+                      ConvertButton(buttonName: "100%"),
+                    ]),
                 const Divider(),
                 const Text(
                   "Para receber em:",

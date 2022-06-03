@@ -1,5 +1,6 @@
 import 'dart:math';
 import 'package:flutter/material.dart';
+import 'package:myapp/Widgets/chart_buttons.dart';
 import 'package:syncfusion_flutter_charts/charts.dart';
 import 'package:myapp/Widgets/model_charts.dart';
 
@@ -38,21 +39,6 @@ class _LineGraphicState extends State<LineGraphic> {
     });
   }
 
-  Widget chartButtons(String buttonName, int numberSpots) {
-    return Padding(
-      padding: const EdgeInsets.symmetric(horizontal: 6),
-      child: OutlinedButton(
-          style: ButtonStyle(
-            backgroundColor: MaterialStateProperty.all(
-                const Color.fromARGB(255, 235, 231, 231)),
-          ),
-          onPressed: () {
-            callDataCharts(numberSpots);
-          },
-          child: Text(buttonName)),
-    );
-  }
-
   @override
   Widget build(BuildContext context) {
     return Material(
@@ -84,11 +70,31 @@ class _LineGraphicState extends State<LineGraphic> {
           child: ListView(
             scrollDirection: Axis.horizontal,
             children: [
-              chartButtons("5D", 5),
-              chartButtons("10D", 10),
-              chartButtons("15D", 15),
-              chartButtons("30D", 30),
-              chartButtons("50D", 30),
+              ChartButtons(
+                  buttonName: "5D",
+                  onPressed: () {
+                    callDataCharts(5);
+                  }),
+              ChartButtons(
+                  buttonName: "10D",
+                  onPressed: () {
+                    callDataCharts(10);
+                  }),
+              ChartButtons(
+                  buttonName: "15D",
+                  onPressed: () {
+                    callDataCharts(15);
+                  }),
+              ChartButtons(
+                  buttonName: "30D",
+                  onPressed: () {
+                    callDataCharts(30);
+                  }),
+              ChartButtons(
+                  buttonName: "50D",
+                  onPressed: () {
+                    callDataCharts(50);
+                  })
             ],
           ),
         )
