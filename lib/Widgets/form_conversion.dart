@@ -35,6 +35,7 @@ class _DropdownListState extends State<DropdownList> {
         value: selectCoin,
         hint: const Text("Moeda"),
         borderRadius: const BorderRadius.all(Radius.zero),
+        alignment: Alignment.topRight,
       ),
     );
   }

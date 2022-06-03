@@ -38,7 +38,7 @@ class _LineGraphicState extends State<LineGraphic> {
     });
   }
 
-  chartButtons(String buttonName, int numberSpots) {
+  Widget chartButtons(String buttonName, int numberSpots) {
     return Padding(
       padding: const EdgeInsets.symmetric(horizontal: 6),
       child: OutlinedButton(
