@@ -1,5 +1,6 @@
 import 'dart:math';
 import 'package:flutter/material.dart';
+import 'package:myapp/Widgets/chart_buttons.dart';
 import 'package:syncfusion_flutter_charts/charts.dart';
 import 'package:myapp/Widgets/model_charts.dart';
 
@@ -19,7 +20,7 @@ class _LineGraphicState extends State<LineGraphic> {
     data = generateSpots(50);
   }
 
-  List<CapitalDate> generateSpots(int count) {
+   List<CapitalDate> generateSpots(int count) {
     final DateTime todayTime = DateTime.now();
     List<CapitalDate> list = <CapitalDate>[];
     for (var i = 0; i < count; i++) {
@@ -83,12 +84,12 @@ class _LineGraphicState extends State<LineGraphic> {
           height: 30,
           child: ListView(
             scrollDirection: Axis.horizontal,
-            children: [
-              chartButtons("5D", 5),
-              chartButtons("10D", 10),
-              chartButtons("15D", 15),
-              chartButtons("30D", 30),
-              chartButtons("50D", 30),
+            children: const [
+              ChartButtons(buttonName: "5D", onPressed:(){callDataCharts(5)}),
+              ChartButtons(buttonName: "10D", onPressed:(){10}),
+              ChartButtons(buttonName: "15D", onPressed:(){15}),
+              ChartButtons(buttonName: "30D", onPressed:(){30}),
+              ChartButtons(buttonName: "50D", onPressed:() {50}),
             ],
           ),
         )
