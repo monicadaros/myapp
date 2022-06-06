@@ -1,4 +1,3 @@
-import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:myapp/Widgets/my_app_bar.dart';
 import 'package:myapp/Widgets/bottom_bar.dart';
@@ -134,9 +133,7 @@ class _DetailPageState extends State<DetailPage> {
                             backgroundColor:
                                 MaterialStateProperty.all(Colors.pink)),
                         onPressed: () {
-                          if (kDebugMode) {
-                            print("teste");
-                          }
+                          Navigator.pushNamed(context, '/conversion');
                         },
                         child: const Text(
                           "Converter Moeda",
