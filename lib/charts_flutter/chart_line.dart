@@ -94,7 +94,7 @@ class _LineGraphicState extends State<LineGraphic> {
                   buttonName: "50D",
                   onPressed: () {
                     callDataCharts(50);
-                  })
+                  }),
             ],
           ),
         )

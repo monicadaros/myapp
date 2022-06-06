@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:myapp/Pages/conversion.dart';
 import 'package:myapp/Pages/home_page.dart';
 import 'package:myapp/Pages/details.dart';
+import 'package:myapp/Pages/sucess_convert.dart';
 
 void main() {
   runApp(
@@ -10,6 +11,7 @@ void main() {
       debugShowCheckedModeBanner: false,
       initialRoute: '/homePage',
       routes: {
+        '/sucess_convert': (BuildContext context) => const SucessConvert(),
         '/conversion': (BuildContext context) => const ConversionCoin(),
         '/homePage': (BuildContext context) => const HomePage(),
         '/bitcoin': (BuildContext context) => const DetailPage(

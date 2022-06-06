@@ -1,6 +1,6 @@
-import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:myapp/Pages/sucess_convert.dart';
 import 'package:myapp/Widgets/conversion_button.dart';
 import 'package:myapp/Widgets/form_conversion.dart';
 import 'package:myapp/Widgets/my_app_bar.dart';
@@ -101,9 +101,7 @@ class _ConversionCoinState extends State<ConversionCoin> {
                         backgroundColor: MaterialStateProperty.all(
                             const Color.fromARGB(255, 255, 255, 255))),
                     onPressed: () {
-                      if (kDebugMode) {
-                        print("teste1");
-                      }
+                      Navigator.pushNamed(context, '/homePage');
                     },
                     child: const Text(
                       "Cancelar",
@@ -116,8 +114,12 @@ class _ConversionCoinState extends State<ConversionCoin> {
                         backgroundColor:
                             MaterialStateProperty.all(Colors.pink)),
                     onPressed: () {
-                      if (kDebugMode) {
-                        print("teste");
+                      if (double.parse(_valueReceive.text) > 0) {
+                        showModalBottomSheet(
+                            context: context,
+                            builder: (context) => const SucessConvert());
+                      } else {
+                        Navigator.pushNamed(context, '/litecoin');
                       }
                     },
                     child: const Text(

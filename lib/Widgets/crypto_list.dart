@@ -25,7 +25,7 @@ class _CryptoCoinsState extends State<CryptoCoins> {
             leading: const CircleAvatar(
               backgroundColor: Colors.white,
               backgroundImage: AssetImage(
-                CryptoIcon.iconBTC,
+                AppIcons.iconBTC,
               ),
             ),
             title: Text(crypto[0].abbreviationCrypto),
@@ -67,7 +67,7 @@ class _CryptoCoinsState extends State<CryptoCoins> {
           ListTile(
               leading: const CircleAvatar(
                 backgroundColor: Colors.white,
-                backgroundImage: AssetImage(CryptoIcon.iconLTC),
+                backgroundImage: AssetImage(AppIcons.iconLTC),
               ),
               title: Text(crypto[1].abbreviationCrypto),
               subtitle: Text(crypto[1].nameCrypto),
@@ -107,7 +107,7 @@ class _CryptoCoinsState extends State<CryptoCoins> {
           ListTile(
               leading: const CircleAvatar(
                 backgroundColor: Colors.white,
-                backgroundImage: AssetImage(CryptoIcon.iconETH),
+                backgroundImage: AssetImage(AppIcons.iconETH),
               ),
               title: Text(crypto[2].abbreviationCrypto),
               subtitle: Text(crypto[2].nameCrypto),
