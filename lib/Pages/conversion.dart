@@ -2,8 +2,10 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:myapp/Pages/sucess_convert.dart';
 import 'package:myapp/Widgets/conversion_button.dart';
-import 'package:myapp/Widgets/form_conversion.dart';
 import 'package:myapp/Widgets/my_app_bar.dart';
+import 'package:myapp/Widgets/value_crypto.dart';
+
+import '../Widgets/dropdown_conversion.dart';
 
 class ConversionCoin extends StatefulWidget {
   const ConversionCoin({Key? key}) : super(key: key);
@@ -18,6 +20,7 @@ class _ConversionCoinState extends State<ConversionCoin> {
   final _value = TextEditingController();
   final _receiveIn = GlobalKey<FormState>();
   final _valueReceive = TextEditingController();
+  String valueConvert = "";
 
   @override
   Widget build(BuildContext context) {
@@ -39,7 +42,7 @@ class _ConversionCoinState extends State<ConversionCoin> {
                     fontSize: 20,
                   ),
                 ),
-                const DropdownList(),
+                DropdownList(),
                 Column(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   mainAxisSize: MainAxisSize.max,
@@ -64,27 +67,42 @@ class _ConversionCoinState extends State<ConversionCoin> {
                         }),
                   ],
                 ),
-                Row(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: const [
-                      ConvertButton(buttonName: "25%"),
-                      ConvertButton(buttonName: "50%"),
-                      ConvertButton(buttonName: "75%"),
-                      ConvertButton(buttonName: "100%"),
-                    ]),
+                Row(mainAxisAlignment: MainAxisAlignment.center, children: [
+                  ConvertButton(
+                    buttonName: 25,
+                    dropdownList: DropdownList(),
+                    valueCoin: ValueCoin(),
+                  ),
+                  ConvertButton(
+                    buttonName: 50,
+                    dropdownList: DropdownList(),
+                    valueCoin: ValueCoin(),
+                  ),
+                  ConvertButton(
+                    buttonName: 75,
+                    dropdownList: DropdownList(),
+                    valueCoin: ValueCoin(),
+                  ),
+                  ConvertButton(
+                    buttonName: 100,
+                    dropdownList: DropdownList(),
+                    valueCoin: ValueCoin(),
+                  ),
+                ]),
                 const Divider(),
                 const Text(
                   "Para receber em:",
                   style: TextStyle(fontSize: 20),
                 ),
-                const DropdownList(),
+                DropdownList(),
                 Column(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   mainAxisSize: MainAxisSize.max,
                   children: [
                     TextFormField(
+                      readOnly: true,
                       key: _receiveIn,
-                      controller: _valueReceive,
+                      controller: TextEditingController(text: valueConvert),
                       style: const TextStyle(fontSize: 20, color: Colors.black),
                       decoration: const InputDecoration(
                           border: OutlineInputBorder(),
@@ -119,7 +137,12 @@ class _ConversionCoinState extends State<ConversionCoin> {
                             context: context,
                             builder: (context) => const SucessConvert());
                       } else {
-                        Navigator.pushNamed(context, '/litecoin');
+                        showModalBottomSheet(
+                            context: context,
+                            builder: (BuildContext context) =>
+                                const AlertDialog(
+                                  title: Text("Ops, algo deu errado!"),
+                                ));
                       }
                     },
                     child: const Text(

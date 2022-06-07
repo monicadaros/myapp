@@ -1,9 +1,19 @@
-import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
+import 'package:myapp/Widgets/dropdown_conversion.dart';
+import 'package:myapp/Widgets/value_crypto.dart';
 
 class ConvertButton extends StatelessWidget {
-  final String buttonName;
-  const ConvertButton({Key? key, required this.buttonName}) : super(key: key);
+  final int buttonName;
+  final DropdownList dropdownList;
+  final ValueCoin valueCoin;
+  double? qualquerCoisa = 3;
+  ConvertButton({
+    Key? key,
+    required this.buttonName,
+    required this.dropdownList,
+    required this.valueCoin,
+    this.qualquerCoisa,
+  }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -14,18 +24,24 @@ class ConvertButton extends StatelessWidget {
           Padding(
             padding: const EdgeInsets.symmetric(horizontal: 7),
             child: OutlinedButton(
-              style: ButtonStyle(
-                side: MaterialStateProperty.all(BorderSide.none),
-                backgroundColor: MaterialStateProperty.all(
-                    const Color.fromARGB(255, 255, 251, 255)),
-              ),
-              onPressed: () {
-                if (kDebugMode) {
-                  print("teste");
-                }
-              },
-              child: Text(buttonName),
-            ),
+                style: ButtonStyle(
+                  side: MaterialStateProperty.all(BorderSide.none),
+                  backgroundColor: MaterialStateProperty.all(
+                      const Color.fromARGB(255, 255, 251, 255)),
+                ),
+                onPressed: () {
+                  if (dropdownList.selectCoin == "Bitcoin") {
+                    qualquerCoisa = valueCoin.valueBitcoin * buttonName;
+                    print(qualquerCoisa);
+                  } else if (dropdownList.selectCoin == "Litecoin") {
+                    qualquerCoisa = valueCoin.valueLitecoin * buttonName;
+                    print(qualquerCoisa);
+                  } else if (dropdownList.selectCoin == "Ethereum") {
+                    qualquerCoisa = valueCoin.valueEthereum * buttonName;
+                    print(qualquerCoisa);
+                  }
+                },
+                child: Text(buttonName.toString())),
           ),
         ]);
   }

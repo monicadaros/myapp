@@ -1,15 +1,15 @@
 import 'package:flutter/material.dart';
 
 class DropdownList extends StatefulWidget {
-  const DropdownList({Key? key}) : super(key: key);
+  String? selectCoin;
+  DropdownList({Key? key, this.selectCoin}) : super(key: key);
 
   @override
-  State<DropdownList> createState() => _DropdownListState();
+  State<DropdownList> createState() => DropdownListState();
 }
 
-class _DropdownListState extends State<DropdownList> {
-  final List<String> valueCoin = ['Bitcoin', 'Litecoin', 'Etherum'];
-  String? selectCoin;
+class DropdownListState extends State<DropdownList> {
+  final List<String> valueCoin = ['Bitcoin', 'Litecoin', 'Ethereum'];
 
   @override
   Widget build(BuildContext context) {
@@ -30,9 +30,9 @@ class _DropdownListState extends State<DropdownList> {
           ),
         ],
         onChanged: (value) => setState(() {
-          selectCoin = value;
+          widget.selectCoin = value;
         }),
-        value: selectCoin,
+        value: widget.selectCoin,
         hint: const Text("Moeda"),
         borderRadius: const BorderRadius.all(Radius.zero),
         alignment: Alignment.topRight,
