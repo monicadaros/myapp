@@ -15,15 +15,25 @@ class ConversionCoin extends StatefulWidget {
 }
 
 class _ConversionCoinState extends State<ConversionCoin> {
+  String selectCryptoConvert = "";
+  String selectCryptoReceive = "";
   String pagename = "Conversão de Moeda";
   final _convertFron = GlobalKey<FormState>();
   final _value = TextEditingController();
   final _receiveIn = GlobalKey<FormState>();
   final _valueReceive = TextEditingController();
-  String valueConvert = "";
+  void selectCoinConvert(String value) {
+    setState(() => selectCryptoConvert = value);
+  }
+
+  void selectCoinReceive(String value) {
+    setState(() => selectCryptoReceive = value);
+  }
 
   @override
   Widget build(BuildContext context) {
+    print(selectCryptoConvert);
+    print(selectCryptoReceive);
     return Scaffold(
       appBar: PreferredSize(
           child: MyAppBar(pageName: pagename),
@@ -42,7 +52,8 @@ class _ConversionCoinState extends State<ConversionCoin> {
                     fontSize: 20,
                   ),
                 ),
-                DropdownList(),
+                DropdownList(
+                    onChangedCrypto: (crypto) => selectCoinConvert(crypto)),
                 Column(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   mainAxisSize: MainAxisSize.max,
@@ -70,22 +81,18 @@ class _ConversionCoinState extends State<ConversionCoin> {
                 Row(mainAxisAlignment: MainAxisAlignment.center, children: [
                   ConvertButton(
                     buttonName: 25,
-                    dropdownList: DropdownList(),
                     valueCoin: ValueCoin(),
                   ),
                   ConvertButton(
                     buttonName: 50,
-                    dropdownList: DropdownList(),
                     valueCoin: ValueCoin(),
                   ),
                   ConvertButton(
                     buttonName: 75,
-                    dropdownList: DropdownList(),
                     valueCoin: ValueCoin(),
                   ),
                   ConvertButton(
                     buttonName: 100,
-                    dropdownList: DropdownList(),
                     valueCoin: ValueCoin(),
                   ),
                 ]),
@@ -94,7 +101,8 @@ class _ConversionCoinState extends State<ConversionCoin> {
                   "Para receber em:",
                   style: TextStyle(fontSize: 20),
                 ),
-                DropdownList(),
+                DropdownList(
+                    onChangedCrypto: (crypto) => selectCoinReceive(crypto)),
                 Column(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   mainAxisSize: MainAxisSize.max,
@@ -102,7 +110,7 @@ class _ConversionCoinState extends State<ConversionCoin> {
                     TextFormField(
                       readOnly: true,
                       key: _receiveIn,
-                      controller: TextEditingController(text: valueConvert),
+                      controller: _valueReceive,
                       style: const TextStyle(fontSize: 20, color: Colors.black),
                       decoration: const InputDecoration(
                           border: OutlineInputBorder(),

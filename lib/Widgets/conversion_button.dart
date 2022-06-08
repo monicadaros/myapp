@@ -1,16 +1,14 @@
 import 'package:flutter/material.dart';
-import 'package:myapp/Widgets/dropdown_conversion.dart';
 import 'package:myapp/Widgets/value_crypto.dart';
 
 class ConvertButton extends StatelessWidget {
+  ValueCoin;
   final int buttonName;
-  final DropdownList dropdownList;
   final ValueCoin valueCoin;
   double? qualquerCoisa = 3;
   ConvertButton({
     Key? key,
     required this.buttonName,
-    required this.dropdownList,
     required this.valueCoin,
     this.qualquerCoisa,
   }) : super(key: key);
@@ -30,16 +28,17 @@ class ConvertButton extends StatelessWidget {
                       const Color.fromARGB(255, 255, 251, 255)),
                 ),
                 onPressed: () {
-                  if (dropdownList.selectCoin == "Bitcoin") {
-                    qualquerCoisa = valueCoin.valueBitcoin * buttonName;
-                    print(qualquerCoisa);
-                  } else if (dropdownList.selectCoin == "Litecoin") {
-                    qualquerCoisa = valueCoin.valueLitecoin * buttonName;
-                    print(qualquerCoisa);
-                  } else if (dropdownList.selectCoin == "Ethereum") {
-                    qualquerCoisa = valueCoin.valueEthereum * buttonName;
-                    print(qualquerCoisa);
-                  }
+                  // print(dropdownList.selectCoin);
+                  // if (dropdownList.selectCoin == "Bitcoin") {
+                  //   qualquerCoisa = valueCoin.valueBitcoin * buttonName;
+                  //   print(qualquerCoisa);
+                  // } else if (dropdownList.selectCoin == "Litecoin") {
+                  //   qualquerCoisa = valueCoin.valueLitecoin * buttonName;
+                  //   print(qualquerCoisa);
+                  // } else if (dropdownList.selectCoin == "Ethereum") {
+                  //   qualquerCoisa = valueCoin.valueEthereum * buttonName;
+                  //   print(qualquerCoisa);
+                  // }
                 },
                 child: Text(buttonName.toString())),
           ),
