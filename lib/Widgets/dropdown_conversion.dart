@@ -1,20 +1,22 @@
 import 'package:flutter/material.dart';
 
-class DropdownList extends StatelessWidget {
+class DropdownList extends StatefulWidget {
   final void Function(String) onChangedCrypto;
   const DropdownList({Key? key, required this.onChangedCrypto})
       : super(key: key);
 
   @override
+  State<DropdownList> createState() => _DropdownListState();
+}
+
+class _DropdownListState extends State<DropdownList> {
+  String testeCrypto = "";
+  @override
   Widget build(BuildContext context) {
-    final List<String> valueCoin = ['Bitcoin', 'Litecoin', 'Ethereum'];
+    final List<String> valueCoin = ["", 'Bitcoin', 'Litecoin', 'Ethereum'];
     return Material(
       child: DropdownButton<String>(
         items: [
-          DropdownMenuItem(
-            child: Text(valueCoin[0]),
-            value: valueCoin[0],
-          ),
           DropdownMenuItem(
             child: Text(valueCoin[1]),
             value: valueCoin[1],
@@ -23,10 +25,19 @@ class DropdownList extends StatelessWidget {
             child: Text(valueCoin[2]),
             value: valueCoin[2],
           ),
+          DropdownMenuItem(
+            child: Text(valueCoin[3]),
+            value: valueCoin[3],
+          ),
         ],
-        onChanged: (crypto) => onChangedCrypto(crypto.toString()),
-        // value: value,
-        hint: const Text("Moeda"),
+        onChanged: (crypto) {
+          print(crypto);
+          setState(() {
+            testeCrypto = crypto.toString();
+          });
+          widget.onChangedCrypto(crypto.toString());
+        },
+        hint: Text(testeCrypto == "" ? "Moeda" : testeCrypto),
         borderRadius: const BorderRadius.all(Radius.zero),
         alignment: Alignment.topRight,
       ),

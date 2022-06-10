@@ -2,15 +2,13 @@ import 'package:flutter/material.dart';
 import 'package:myapp/Widgets/value_crypto.dart';
 
 class ConvertButton extends StatelessWidget {
-  ValueCoin;
   final int buttonName;
   final ValueCoin valueCoin;
-  double? qualquerCoisa = 3;
-  ConvertButton({
+  final double? qualquerCoisa = 3;
+  const ConvertButton({
     Key? key,
     required this.buttonName,
     required this.valueCoin,
-    this.qualquerCoisa,
   }) : super(key: key);
 
   @override
@@ -28,17 +26,7 @@ class ConvertButton extends StatelessWidget {
                       const Color.fromARGB(255, 255, 251, 255)),
                 ),
                 onPressed: () {
-                  // print(dropdownList.selectCoin);
-                  // if (dropdownList.selectCoin == "Bitcoin") {
-                  //   qualquerCoisa = valueCoin.valueBitcoin * buttonName;
-                  //   print(qualquerCoisa);
-                  // } else if (dropdownList.selectCoin == "Litecoin") {
-                  //   qualquerCoisa = valueCoin.valueLitecoin * buttonName;
-                  //   print(qualquerCoisa);
-                  // } else if (dropdownList.selectCoin == "Ethereum") {
-                  //   qualquerCoisa = valueCoin.valueEthereum * buttonName;
-                  //   print(qualquerCoisa);
-                  // }
+                  {}
                 },
                 child: Text(buttonName.toString())),
           ),
