@@ -32,8 +32,6 @@ class _ConversionCoinState extends State<ConversionCoin> {
 
   @override
   Widget build(BuildContext context) {
-    print(selectCryptoConvert);
-    print(selectCryptoReceive);
     return Scaffold(
       appBar: PreferredSize(
           child: MyAppBar(pageName: pagename),
@@ -140,7 +138,7 @@ class _ConversionCoinState extends State<ConversionCoin> {
                         backgroundColor:
                             MaterialStateProperty.all(Colors.pink)),
                     onPressed: () {
-                      if (double.parse(_valueReceive.text) > 0) {
+                      if (double.parse(_valueReceive.text) >= 0) {
                         showModalBottomSheet(
                             context: context,
                             builder: (context) => const SucessConvert());

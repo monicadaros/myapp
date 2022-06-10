@@ -10,37 +10,36 @@ class DropdownList extends StatefulWidget {
 }
 
 class _DropdownListState extends State<DropdownList> {
-  String testeCrypto = "";
+  String selectCrypto = "Bitcoin";
+
   @override
   Widget build(BuildContext context) {
-    final List<String> valueCoin = ["", 'Bitcoin', 'Litecoin', 'Ethereum'];
-    return Material(
-      child: DropdownButton<String>(
-        items: [
-          DropdownMenuItem(
-            child: Text(valueCoin[1]),
-            value: valueCoin[1],
-          ),
-          DropdownMenuItem(
-            child: Text(valueCoin[2]),
-            value: valueCoin[2],
-          ),
-          DropdownMenuItem(
-            child: Text(valueCoin[3]),
-            value: valueCoin[3],
-          ),
-        ],
-        onChanged: (crypto) {
-          print(crypto);
-          setState(() {
-            testeCrypto = crypto.toString();
-          });
-          widget.onChangedCrypto(crypto.toString());
-        },
-        hint: Text(testeCrypto == "" ? "Moeda" : testeCrypto),
-        borderRadius: const BorderRadius.all(Radius.zero),
-        alignment: Alignment.topRight,
-      ),
+    final List<String> valueCoin = ['Bitcoin', 'Litecoin', 'Ethereum'];
+    return DropdownButton<String>(
+      items: [
+        DropdownMenuItem(
+          child: Text(valueCoin[0]),
+          value: valueCoin[0],
+        ),
+        DropdownMenuItem(
+          child: Text(valueCoin[1]),
+          value: valueCoin[1],
+        ),
+        DropdownMenuItem(
+          child: Text(valueCoin[2]),
+          value: valueCoin[2],
+        ),
+      ],
+      onChanged: (crypto) {
+        setState(() {
+          selectCrypto = crypto.toString();
+        });
+        widget.onChangedCrypto(crypto.toString());
+      },
+      value: selectCrypto,
+      hint: Text(selectCrypto),
+      borderRadius: const BorderRadius.all(Radius.zero),
+      alignment: Alignment.topRight,
     );
   }
 }
