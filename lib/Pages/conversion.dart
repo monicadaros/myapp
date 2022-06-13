@@ -22,12 +22,19 @@ class _ConversionCoinState extends State<ConversionCoin> {
   final _value = TextEditingController();
   final _receiveIn = GlobalKey<FormState>();
   final _valueReceive = TextEditingController();
+
   void selectCoinConvert(String value) {
     setState(() => selectCryptoConvert = value);
   }
 
   void selectCoinReceive(String value) {
     setState(() => selectCryptoReceive = value);
+  }
+
+  void percentConvert() {
+    setState(() {
+      print(1000 * 25 / 100);
+    });
   }
 
   @override
@@ -71,7 +78,13 @@ class _ConversionCoinState extends State<ConversionCoin> {
                         validator: (validValue) {
                           if (validValue!.isEmpty) {
                             return "Informe o valor";
-                          } else if (double.parse(validValue) > 0) {}
+                          } else if (double.parse(validValue) > 0) {
+                          } else {
+                            (selectCoinConvert) {
+                              _valueReceive ==
+                                  (ValueCoin == _value.text * 5000);
+                            };
+                          }
                           return null;
                         }),
                   ],
@@ -80,18 +93,22 @@ class _ConversionCoinState extends State<ConversionCoin> {
                   ConvertButton(
                     buttonName: 25,
                     valueCoin: ValueCoin(),
+                    onPressed: percentConvert,
                   ),
                   ConvertButton(
                     buttonName: 50,
                     valueCoin: ValueCoin(),
+                    onPressed: percentConvert,
                   ),
                   ConvertButton(
                     buttonName: 75,
                     valueCoin: ValueCoin(),
+                    onPressed: percentConvert,
                   ),
                   ConvertButton(
                     buttonName: 100,
                     valueCoin: ValueCoin(),
+                    onPressed: percentConvert,
                   ),
                 ]),
                 const Divider(),
@@ -163,3 +180,5 @@ class _ConversionCoinState extends State<ConversionCoin> {
     );
   }
 }
+
+teste(double d) {}

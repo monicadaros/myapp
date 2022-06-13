@@ -43,15 +43,3 @@ class _DropdownListState extends State<DropdownList> {
     );
   }
 }
-
-// class DropdownList extends StatefulWidget {
-  
-//   VoidCallback setState (){};
-//   DropdownList({Key? key, this.selectCoin}) : super(key: key);
-
-//   @override
-//   State<DropdownList> createState() => DropdownListState();
-// }
-
-// class DropdownListState extends State<DropdownList> {
-  // final List<String> valueCoin = ['Bitcoin', 'Litecoin', 'Ethereum'];
