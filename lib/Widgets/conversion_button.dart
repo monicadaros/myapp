@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:myapp/Widgets/value_crypto.dart';
 
-class ConvertButton extends StatefulWidget {
-  final int buttonName;
+class ConvertButton extends StatelessWidget {
+  final num buttonName;
   final ValueCoin valueCoin;
   final VoidCallback onPressed;
 
@@ -13,11 +13,6 @@ class ConvertButton extends StatefulWidget {
     required this.onPressed,
   }) : super(key: key);
 
-  @override
-  State<ConvertButton> createState() => _ConvertButtonState();
-}
-
-class _ConvertButtonState extends State<ConvertButton> {
   @override
   Widget build(BuildContext context) {
     return Row(
@@ -32,10 +27,8 @@ class _ConvertButtonState extends State<ConvertButton> {
                   backgroundColor: MaterialStateProperty.all(
                       const Color.fromARGB(255, 255, 251, 255)),
                 ),
-                onPressed: () {
-                  widget.onPressed();
-                },
-                child: Text(widget.buttonName.toString())),
+                onPressed: onPressed,
+                child: Text(buttonName.toString())),
           ),
         ]);
   }

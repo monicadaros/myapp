@@ -8,7 +8,10 @@ import 'package:myapp/Widgets/value_crypto.dart';
 import '../Widgets/dropdown_conversion.dart';
 
 class ConversionCoin extends StatefulWidget {
-  const ConversionCoin({Key? key}) : super(key: key);
+  final ConvertButton? buttonName;
+  final ValueCoin? teste2;
+  const ConversionCoin({Key? key, this.buttonName, this.teste2})
+      : super(key: key);
 
   @override
   State<ConversionCoin> createState() => _ConversionCoinState();
@@ -32,8 +35,15 @@ class _ConversionCoinState extends State<ConversionCoin> {
   }
 
   void percentConvert() {
+    if (num.tryParse(widget.teste2!.valueBitcoin.toString())! == null) return;
+    if (widget.buttonName == null) return;
+
     setState(() {
-      print(1000 * 25 / 100);
+      print(num.tryParse(widget.teste2!.valueBitcoin.toString())!);
+      _value.text = (num.tryParse(widget.teste2!.valueBitcoin.toString())! *
+              widget.buttonName!.buttonName /
+              100)
+          .toString();
     });
   }
 
@@ -79,11 +89,10 @@ class _ConversionCoinState extends State<ConversionCoin> {
                           if (validValue!.isEmpty) {
                             return "Informe o valor";
                           } else if (double.parse(validValue) > 0) {
-                          } else {
-                            (selectCoinConvert) {
-                              _valueReceive ==
-                                  (ValueCoin == _value.text * 5000);
-                            };
+                            // } else {
+                            //   (selectCoinConvert) {
+                            //     percentConvert();
+                            //   };
                           }
                           return null;
                         }),
@@ -93,7 +102,9 @@ class _ConversionCoinState extends State<ConversionCoin> {
                   ConvertButton(
                     buttonName: 25,
                     valueCoin: ValueCoin(),
-                    onPressed: percentConvert,
+                    onPressed: () {
+                      print("maurici");
+                    },
                   ),
                   ConvertButton(
                     buttonName: 50,
