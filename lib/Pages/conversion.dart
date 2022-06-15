@@ -9,9 +9,7 @@ import '../Widgets/dropdown_conversion.dart';
 
 class ConversionCoin extends StatefulWidget {
   final ConvertButton? buttonName;
-  final ValueCoin? teste2;
-  const ConversionCoin({Key? key, this.buttonName, this.teste2})
-      : super(key: key);
+  const ConversionCoin({Key? key, this.buttonName}) : super(key: key);
 
   @override
   State<ConversionCoin> createState() => _ConversionCoinState();
@@ -34,17 +32,10 @@ class _ConversionCoinState extends State<ConversionCoin> {
     setState(() => selectCryptoReceive = value);
   }
 
-  void percentConvert() {
-    if (num.tryParse(widget.teste2!.valueBitcoin.toString())! == null) return;
-    if (widget.buttonName == null) return;
-
-    setState(() {
-      print(num.tryParse(widget.teste2!.valueBitcoin.toString())!);
-      _value.text = (num.tryParse(widget.teste2!.valueBitcoin.toString())! *
-              widget.buttonName!.buttonName /
-              100)
-          .toString();
-    });
+  void percentConvert(double value2) {
+    final valorTotal2 = double.parse(_value.text);
+    final valorTotal = valorTotal2 * (value2);
+    _valueReceive.text = valorTotal.toString();
   }
 
   @override
@@ -103,23 +94,29 @@ class _ConversionCoinState extends State<ConversionCoin> {
                     buttonName: 25,
                     valueCoin: ValueCoin(),
                     onPressed: () {
-                      print("maurici");
+                      percentConvert(0.25);
                     },
                   ),
                   ConvertButton(
                     buttonName: 50,
                     valueCoin: ValueCoin(),
-                    onPressed: percentConvert,
+                    onPressed: () {
+                      percentConvert(0.5);
+                    },
                   ),
                   ConvertButton(
                     buttonName: 75,
                     valueCoin: ValueCoin(),
-                    onPressed: percentConvert,
+                    onPressed: () {
+                      percentConvert(0.75);
+                    },
                   ),
                   ConvertButton(
                     buttonName: 100,
                     valueCoin: ValueCoin(),
-                    onPressed: percentConvert,
+                    onPressed: () {
+                      percentConvert(1);
+                    },
                   ),
                 ]),
                 const Divider(),
@@ -191,5 +188,3 @@ class _ConversionCoinState extends State<ConversionCoin> {
     );
   }
 }
-
-teste(double d) {}

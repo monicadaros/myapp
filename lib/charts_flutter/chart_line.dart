@@ -41,6 +41,7 @@ class _LineGraphicState extends State<LineGraphic> {
 
   @override
   Widget build(BuildContext context) {
+    final valorCarteira = 1000;
     return Material(
       child: Column(children: [
         SfCartesianChart(
@@ -48,7 +49,7 @@ class _LineGraphicState extends State<LineGraphic> {
             primaryYAxis: NumericAxis(isVisible: false),
             backgroundColor: const Color.fromARGB(255, 235, 231, 231),
             title: ChartTitle(
-                text: ("R\$1000,00"),
+                text: (valorCarteira.toString()),
                 alignment: ChartAlignment.near,
                 textStyle: const TextStyle(
                     color: Colors.black,
