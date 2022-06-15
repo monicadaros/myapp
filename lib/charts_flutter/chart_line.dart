@@ -49,7 +49,7 @@ class _LineGraphicState extends State<LineGraphic> {
             primaryYAxis: NumericAxis(isVisible: false),
             backgroundColor: const Color.fromARGB(255, 235, 231, 231),
             title: ChartTitle(
-                text: (valorCarteira.toString()),
+                text: ("R\$$valorCarteira,00"),
                 alignment: ChartAlignment.near,
                 textStyle: const TextStyle(
                     color: Colors.black,

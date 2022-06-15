@@ -46,20 +46,28 @@ class _ConversionCoinState extends State<ConversionCoin> {
           preferredSize: const Size(double.infinity, 50)),
       body: Container(
         alignment: Alignment.topLeft,
-        padding: const EdgeInsets.all(10.0),
+        padding: const EdgeInsets.all(20.0),
         child: SingleChildScrollView(
           child: Column(
               mainAxisAlignment: MainAxisAlignment.start,
               mainAxisSize: MainAxisSize.max,
               children: [
-                const Text(
-                  "Converter de:",
-                  style: TextStyle(
-                    fontSize: 20,
+                const SizedBox(
+                  width: 400.0,
+                  height: 30.0,
+                  child: Text(
+                    "Converter de:",
+                    style: TextStyle(
+                      fontSize: 20,
+                    ),
                   ),
                 ),
-                DropdownList(
-                    onChangedCrypto: (crypto) => selectCoinConvert(crypto)),
+                SizedBox(
+                  width: 400.0,
+                  height: 80.0,
+                  child: DropdownList(
+                      onChangedCrypto: (crypto) => selectCoinConvert(crypto)),
+                ),
                 Column(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   mainAxisSize: MainAxisSize.max,
@@ -79,12 +87,7 @@ class _ConversionCoinState extends State<ConversionCoin> {
                         validator: (validValue) {
                           if (validValue!.isEmpty) {
                             return "Informe o valor";
-                          } else if (double.parse(validValue) > 0) {
-                            // } else {
-                            //   (selectCoinConvert) {
-                            //     percentConvert();
-                            //   };
-                          }
+                          } else if (double.parse(validValue) > 0) {}
                           return null;
                         }),
                   ],
@@ -120,12 +123,20 @@ class _ConversionCoinState extends State<ConversionCoin> {
                   ),
                 ]),
                 const Divider(),
-                const Text(
-                  "Para receber em:",
-                  style: TextStyle(fontSize: 20),
+                const SizedBox(
+                  width: 400.0,
+                  height: 30.0,
+                  child: Text(
+                    "Para receber em:",
+                    style: TextStyle(fontSize: 20),
+                  ),
                 ),
-                DropdownList(
-                    onChangedCrypto: (crypto) => selectCoinReceive(crypto)),
+                SizedBox(
+                  width: 400.0,
+                  height: 80.0,
+                  child: DropdownList(
+                      onChangedCrypto: (crypto) => selectCoinReceive(crypto)),
+                ),
                 Column(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   mainAxisSize: MainAxisSize.max,
@@ -156,6 +167,9 @@ class _ConversionCoinState extends State<ConversionCoin> {
                       "Cancelar",
                       style: TextStyle(color: Colors.pink),
                     ),
+                  ),
+                  const SizedBox(
+                    width: 10.0,
                   ),
                   OutlinedButton(
                     style: ButtonStyle(

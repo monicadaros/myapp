@@ -15,7 +15,7 @@ class _DropdownListState extends State<DropdownList> {
   @override
   Widget build(BuildContext context) {
     final List<String> valueCoin = ['Bitcoin', 'Litecoin', 'Ethereum'];
-    return DropdownButton<String>(
+    return DropdownButtonFormField<String>(
       items: [
         DropdownMenuItem(
           child: Text(valueCoin[0]),
@@ -38,8 +38,8 @@ class _DropdownListState extends State<DropdownList> {
       },
       value: selectCrypto,
       hint: Text(selectCrypto),
-      borderRadius: const BorderRadius.all(Radius.zero),
       alignment: Alignment.topRight,
+      decoration: const InputDecoration(border: OutlineInputBorder()),
     );
   }
 }
