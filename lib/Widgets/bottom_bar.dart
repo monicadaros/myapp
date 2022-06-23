@@ -12,6 +12,11 @@ class MyBottomBar extends StatefulWidget {
 
 class _MyBottomBarState extends State<MyBottomBar> {
   final pageViewController = PageController();
+  final List<Widget> pages = [
+    const HomePage(),
+    const Carteira(),
+    const MovimentPage()
+  ];
 
   @override
   void dispose() {
@@ -19,6 +24,7 @@ class _MyBottomBarState extends State<MyBottomBar> {
     pageViewController.dispose();
   }
 
+  @override
   Widget build(BuildContext context) {
     return Scaffold(
       body: PageView(
@@ -33,10 +39,10 @@ class _MyBottomBarState extends State<MyBottomBar> {
           animation: pageViewController,
           builder: (context, snapshot) {
             return BottomNavigationBar(
-              onTap: (home) {
-                pageViewController.jumpToPage(home);
-              },
               currentIndex: pageViewController.page?.round() ?? 0,
+              onTap: (index) {
+                pageViewController.jumpToPage(index);
+              },
               items: const [
                 BottomNavigationBarItem(
                   icon: Icon(Icons.home),
@@ -47,7 +53,6 @@ class _MyBottomBarState extends State<MyBottomBar> {
                   label: "Carteira",
                 ),
                 BottomNavigationBarItem(
-                  activeIcon: ButtonBar(children: []),
                   icon: Icon(Icons.bar_chart_rounded),
                   label: "Movimentações",
                 ),

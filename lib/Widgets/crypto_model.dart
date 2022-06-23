@@ -1,6 +1,7 @@
 class CryptoModel {
   final String abbreviationCrypto;
   final String nameCrypto;
+  final String convertCrypto;
   final int variationCrypto;
   final int unitCrypto;
   final num valueMoviment;
@@ -13,5 +14,6 @@ class CryptoModel {
     required this.dateMoviment,
     required this.unitCrypto,
     required this.valueMoviment,
+    required this.convertCrypto,
   });
 }

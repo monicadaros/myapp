@@ -79,7 +79,6 @@ class _CarteiraState extends State<Carteira> {
           ),
         ]),
       ),
-      bottomNavigationBar: const MyBottomBar(),
     );
   }
 }

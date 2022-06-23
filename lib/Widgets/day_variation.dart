@@ -7,6 +7,7 @@ class DayVariationList {
         nameCrypto: "Bitcoin",
         variationCrypto: 75,
         dateMoviment: DateTime.now(),
+        convertCrypto: "LTC",
         unitCrypto: 1,
         valueMoviment: 50),
     CryptoModel(
@@ -14,6 +15,7 @@ class DayVariationList {
       nameCrypto: "Litecoin",
       variationCrypto: -15,
       dateMoviment: DateTime.now(),
+      convertCrypto: "ETH",
       unitCrypto: 2,
       valueMoviment: 100,
     ),
@@ -22,7 +24,8 @@ class DayVariationList {
       nameCrypto: "Etherum",
       variationCrypto: 25,
       dateMoviment: DateTime.now(),
-      unitCrypto: 3,
+      convertCrypto: "BTC",
+      unitCrypto: 15,
       valueMoviment: 150,
     ),
   ];

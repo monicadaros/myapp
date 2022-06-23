@@ -37,7 +37,9 @@ class _MovimentPageState extends State<MovimentPage> {
                             ),
                           )),
                           child: ListTile(
-                            leading: const Icon(Icons.local_pizza_outlined),
+                            leading: const Icon(
+                              Icons.compare_arrows_rounded,
+                            ),
                             title: Text(
                               e.abbreviationCrypto,
                             ),
@@ -46,7 +48,7 @@ class _MovimentPageState extends State<MovimentPage> {
                               Title(
                                 color: Colors.grey,
                                 child: Text(
-                                  e.unitCrypto.toString(),
+                                  e.unitCrypto.toString() + e.convertCrypto,
                                 ),
                               ),
                               Text("R\$" + e.valueMoviment.toString() + ",00")
@@ -56,7 +58,6 @@ class _MovimentPageState extends State<MovimentPage> {
                   ))
             ]),
       ),
-      bottomNavigationBar: const MyBottomBar(),
     );
   }
 }
