@@ -41,7 +41,7 @@ class _LineGraphicState extends State<LineGraphic> {
 
   @override
   Widget build(BuildContext context) {
-    final valorCarteira = 1000;
+    const valorCarteira = 1000;
     return Material(
       child: Column(children: [
         SfCartesianChart(

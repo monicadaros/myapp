@@ -13,7 +13,7 @@ void main() {
       routes: {
         '/sucess_convert': (BuildContext context) => const SucessConvert(),
         '/conversion': (BuildContext context) => const ConversionCoin(),
-        '/homePage': (BuildContext context) => const HomePage(),
+        '/homePage': (BuildContext context) => const Carteira(),
         '/bitcoin': (BuildContext context) => const DetailPage(
               coinName: "Bitcoin",
             ),
