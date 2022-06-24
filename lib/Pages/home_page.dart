@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:myapp/Widgets/my_app_bar.dart';
-import 'package:myapp/Widgets/bottom_bar.dart';
 import 'package:myapp/Widgets/crypto_list.dart';
 
 class Carteira extends StatefulWidget {
