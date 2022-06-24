@@ -147,7 +147,6 @@ class _DetailPageState extends State<DetailPage> {
           ),
         ),
       ),
-      bottomNavigationBar: const MyBottomBar(),
     );
   }
 }

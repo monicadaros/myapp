@@ -13,7 +13,7 @@ class MyBottomBar extends StatefulWidget {
 class _MyBottomBarState extends State<MyBottomBar> {
   final pageViewController = PageController();
   final List<Widget> pages = [
-    const HomePage(),
+    const PageTeste(),
     const Carteira(),
     const MovimentPage()
   ];
@@ -30,7 +30,7 @@ class _MyBottomBarState extends State<MyBottomBar> {
       body: PageView(
         controller: pageViewController,
         children: const [
-          HomePage(),
+          PageTeste(),
           Carteira(),
           MovimentPage(),
         ],
