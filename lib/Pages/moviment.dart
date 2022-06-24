@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:myapp/Widgets/day_variation.dart';
 import 'package:myapp/Widgets/my_app_bar.dart';
+import 'package:intl/intl.dart' as teste;
 
 class MovimentPage extends StatefulWidget {
   const MovimentPage({Key? key}) : super(key: key);
@@ -11,8 +12,8 @@ class MovimentPage extends StatefulWidget {
 
 class _MovimentPageState extends State<MovimentPage> {
   final String pageName = "Movimentações";
-
   final movimentDatas = DayVariationList().crypto;
+  DateTime now = DateTime.now();
 
   @override
   Widget build(BuildContext context) {
@@ -45,19 +46,38 @@ class _MovimentPageState extends State<MovimentPage> {
                                   ),
                                   title: Text(
                                     e.abbreviationCrypto,
+                                    style: const TextStyle(
+                                        fontWeight: FontWeight.bold, height: 2),
                                   ),
-                                  subtitle: Text(e.dateMoviment.toString()),
+                                  subtitle: Text(
+                                    (teste.DateFormat('dd-MM-yyyy')
+                                        .format(now)),
+                                  ),
                                   trailing: Column(children: [
                                     Title(
                                       color: Colors.grey,
                                       child: Text(
                                         e.unitCrypto.toString() +
                                             e.convertCrypto,
+                                        textAlign: TextAlign.center,
+                                        textDirection: TextDirection.ltr,
+                                        textWidthBasis:
+                                            TextWidthBasis.longestLine,
+                                        style: const TextStyle(
+                                            height: 2.3,
+                                            fontWeight: FontWeight.bold),
                                       ),
                                     ),
-                                    Text("R\$" +
-                                        e.valueMoviment.toString() +
-                                        ",00")
+                                    Text(
+                                      "R\$" +
+                                          e.valueMoviment.toString() +
+                                          ",00",
+                                      textAlign: TextAlign.center,
+                                      textDirection: TextDirection.ltr,
+                                      textWidthBasis:
+                                          TextWidthBasis.longestLine,
+                                      style: const TextStyle(height: 1),
+                                    )
                                   ]),
                                 )),
                           )

@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:myapp/Widgets/my_app_bar.dart';
-import 'package:myapp/Widgets/bottom_bar.dart';
 import 'package:myapp/charts_flutter/chart_bar.dart';
 import 'package:myapp/charts_flutter/chart_line.dart';
 import '../Widgets/day_variation.dart';
