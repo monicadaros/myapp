@@ -20,7 +20,7 @@ class _LineGraphicState extends State<LineGraphic> {
     data = generateSpots(50);
   }
 
-  List<CapitalDate> generateSpots(int count) {
+   List<CapitalDate> generateSpots(int count) {
     final DateTime todayTime = DateTime.now();
     List<CapitalDate> list = <CapitalDate>[];
     for (var i = 0; i < count; i++) {
@@ -70,6 +70,7 @@ class _LineGraphicState extends State<LineGraphic> {
           height: 30,
           child: ListView(
             scrollDirection: Axis.horizontal,
+
             children: [
               ChartButtons(
                   buttonName: "5D",
@@ -96,6 +97,7 @@ class _LineGraphicState extends State<LineGraphic> {
                   onPressed: () {
                     callDataCharts(50);
                   }),
+
             ],
           ),
         )
