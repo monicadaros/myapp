@@ -1,16 +1,15 @@
 import 'package:flutter/material.dart';
 import 'package:myapp/Widgets/my_app_bar.dart';
-import 'package:myapp/Widgets/bottom_bar.dart';
 import 'package:myapp/Widgets/crypto_list.dart';
 
-class HomePage extends StatefulWidget {
-  const HomePage({Key? key}) : super(key: key);
+class Carteira extends StatefulWidget {
+  const Carteira({Key? key}) : super(key: key);
 
   @override
-  State<HomePage> createState() => _HomePageState();
+  State<Carteira> createState() => _CarteiraState();
 }
 
-class _HomePageState extends State<HomePage> {
+class _CarteiraState extends State<Carteira> {
   var count = 5000;
   bool show = true;
   final String pageName = "Carteira";
@@ -79,7 +78,6 @@ class _HomePageState extends State<HomePage> {
           ),
         ]),
       ),
-      bottomNavigationBar: const MyBottomBar(),
     );
   }
 }

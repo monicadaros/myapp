@@ -1,13 +1,19 @@
 import 'package:flutter/material.dart';
 import 'package:myapp/Widgets/my_app_bar.dart';
-import 'package:myapp/Widgets/bottom_bar.dart';
 import 'package:myapp/charts_flutter/chart_bar.dart';
 import 'package:myapp/charts_flutter/chart_line.dart';
 import '../Widgets/day_variation.dart';
 
 class DetailPage extends StatefulWidget {
-  final String coinName;
-  const DetailPage({Key? key, required this.coinName}) : super(key: key);
+  final String nameCrypto;
+  final String abbreviationCrypto;
+  final int variationCrypto;
+  const DetailPage(
+      {Key? key,
+      required this.abbreviationCrypto,
+      required this.nameCrypto,
+      required this.variationCrypto})
+      : super(key: key);
 
   @override
   State<DetailPage> createState() => _DetailPageState();
@@ -56,7 +62,7 @@ class _DetailPageState extends State<DetailPage> {
                           style: TextStyle(fontSize: 40, color: Colors.black),
                         ),
                         subtitle: Text(
-                          widget.coinName,
+                          widget.nameCrypto,
                           style: const TextStyle(
                               fontSize: 30, color: Colors.black),
                         ),
@@ -79,7 +85,7 @@ class _DetailPageState extends State<DetailPage> {
                       const Divider(),
                       ListTile(
                         title: Text(
-                          widget.coinName,
+                          widget.nameCrypto,
                           style: const TextStyle(
                             fontSize: 20,
                             fontWeight: FontWeight.bold,
@@ -98,13 +104,13 @@ class _DetailPageState extends State<DetailPage> {
                         ),
                         trailing: DecoratedBox(
                           decoration: BoxDecoration(
-                            color: crypto[0].variationCrypto > 0
+                            color: widget.variationCrypto > 0
                                 ? Colors.green
                                 : Colors.red,
                             borderRadius: BorderRadius.circular(20),
                           ),
                           child: Text(
-                            crypto[0].variationCrypto.toString() + "%",
+                            widget.variationCrypto.toString() + "%",
                             textAlign: TextAlign.center,
                           ),
                         ),
@@ -147,7 +153,6 @@ class _DetailPageState extends State<DetailPage> {
           ),
         ),
       ),
-      bottomNavigationBar: const MyBottomBar(),
     );
   }
 }

@@ -5,6 +5,7 @@ import 'package:myapp/Widgets/conversion_button.dart';
 import 'package:myapp/Widgets/my_app_bar.dart';
 import 'package:myapp/Widgets/value_crypto.dart';
 
+import '../Widgets/conversion_list.dart';
 import '../Widgets/dropdown_conversion.dart';
 
 class ConversionCoin extends StatefulWidget {
@@ -40,6 +41,8 @@ class _ConversionCoinState extends State<ConversionCoin> {
 
   @override
   Widget build(BuildContext context) {
+    final buttonlist = ConversionButtonList().buttonList;
+
     return Scaffold(
       appBar: PreferredSize(
           child: MyAppBar(pageName: pagename),
@@ -93,33 +96,14 @@ class _ConversionCoinState extends State<ConversionCoin> {
                   ],
                 ),
                 Row(mainAxisAlignment: MainAxisAlignment.center, children: [
-                  ConvertButton(
-                    buttonName: 25,
-                    valueCoin: ValueCoin(),
-                    onPressed: () {
-                      percentConvert(0.25);
-                    },
-                  ),
-                  ConvertButton(
-                    buttonName: 50,
-                    valueCoin: ValueCoin(),
-                    onPressed: () {
-                      percentConvert(0.5);
-                    },
-                  ),
-                  ConvertButton(
-                    buttonName: 75,
-                    valueCoin: ValueCoin(),
-                    onPressed: () {
-                      percentConvert(0.75);
-                    },
-                  ),
-                  ConvertButton(
-                    buttonName: 100,
-                    valueCoin: ValueCoin(),
-                    onPressed: () {
-                      percentConvert(1);
-                    },
+                  ...buttonlist.map(
+                    (e) => ConvertButton(
+                      buttonName: e.buttonName,
+                      valueCoin: ValueCoin(),
+                      onPressed: () {
+                        percentConvert(e.buttonName / 100);
+                      },
+                    ),
                   ),
                 ]),
                 const Divider(),
