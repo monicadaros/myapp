@@ -6,6 +6,7 @@ class CryptoModel {
   final int unitCrypto;
   final num valueMoviment;
   final DateTime dateMoviment;
+  final String icon;
 
   CryptoModel({
     required this.abbreviationCrypto,
@@ -15,5 +16,6 @@ class CryptoModel {
     required this.unitCrypto,
     required this.valueMoviment,
     required this.convertCrypto,
+    required this.icon,
   });
 }

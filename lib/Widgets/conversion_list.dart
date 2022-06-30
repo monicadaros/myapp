@@ -1,6 +1,6 @@
 import 'package:myapp/Widgets/chart_model.dart';
 
-class ChartButtonList {
+class ConversionButtonList {
   final List<ChartModel> buttonList = [
     ChartModel(buttonName: 25),
     ChartModel(buttonName: 50),

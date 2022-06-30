@@ -1,5 +1,6 @@
 import 'dart:math';
 import 'package:flutter/material.dart';
+import 'package:myapp/Widgets/chart_list.dart';
 import 'package:syncfusion_flutter_charts/charts.dart';
 import 'package:myapp/Widgets/model_charts.dart';
 
@@ -55,6 +56,8 @@ class _BarGraphicState extends State<BarGraphic> {
 
   @override
   Widget build(BuildContext context) {
+    final buttonChart = ChartButtonList().buttonChart;
+
     return Material(
       child: Column(children: [
         SfCartesianChart(
@@ -84,11 +87,12 @@ class _BarGraphicState extends State<BarGraphic> {
           child: ListView(
             scrollDirection: Axis.horizontal,
             children: [
-              chartButtons("5D", 5),
-              chartButtons("10D", 10),
-              chartButtons("15D", 15),
-              chartButtons("30D", 30),
-              chartButtons("50D", 30),
+              ...buttonChart.map((e) => Row(
+                    children: [
+                      chartButtons(
+                          e.buttonName.toString() + "D", e.buttonName.toInt())
+                    ],
+                  )),
             ],
           ),
         )
