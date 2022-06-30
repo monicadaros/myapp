@@ -1,9 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:myapp/Widgets/my_app_bar.dart';
 import 'package:myapp/Widgets/bottom_bar.dart';
-import 'package:myapp/Widgets/crypto_btc.dart';
-import 'package:myapp/Widgets/crypto_eth.dart';
-import 'package:myapp/Widgets/crypto_ltc.dart';
+import 'package:myapp/Widgets/crypto_list.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({Key? key}) : super(key: key);
@@ -75,13 +73,8 @@ class _HomePageState extends State<HomePage> {
               ),
             ],
           ),
-          CryptoBTC(
-            show: show,
-          ),
-          CryptoETH(
-            show: show,
-          ),
-          CryptoLTC(
+          const Divider(),
+          CryptoCoins(
             show: show,
           ),
         ]),
