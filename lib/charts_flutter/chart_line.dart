@@ -1,8 +1,8 @@
 import 'dart:math';
 import 'package:flutter/material.dart';
-import 'package:myapp/Widgets/chart_buttons.dart';
 import 'package:syncfusion_flutter_charts/charts.dart';
 import 'package:myapp/Widgets/model_charts.dart';
+import '../Widgets/chart_list.dart';
 
 class LineGraphic extends StatefulWidget {
   const LineGraphic({Key? key}) : super(key: key);
@@ -39,8 +39,24 @@ class _LineGraphicState extends State<LineGraphic> {
     });
   }
 
+  chartButtons(String buttonName, int numberSpots) {
+    return Padding(
+      padding: const EdgeInsets.symmetric(horizontal: 6),
+      child: OutlinedButton(
+          style: ButtonStyle(
+            backgroundColor: MaterialStateProperty.all(
+                const Color.fromARGB(255, 235, 231, 231)),
+          ),
+          onPressed: () {
+            callDataCharts(numberSpots);
+          },
+          child: Text(buttonName)),
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
+    final buttonChart = ChartButtonList().buttonChart;
     const valorCarteira = 1000;
     return Material(
       child: Column(children: [
@@ -71,31 +87,12 @@ class _LineGraphicState extends State<LineGraphic> {
           child: ListView(
             scrollDirection: Axis.horizontal,
             children: [
-              ChartButtons(
-                  buttonName: "5D",
-                  onPressed: () {
-                    callDataCharts(5);
-                  }),
-              ChartButtons(
-                  buttonName: "10D",
-                  onPressed: () {
-                    callDataCharts(10);
-                  }),
-              ChartButtons(
-                  buttonName: "15D",
-                  onPressed: () {
-                    callDataCharts(15);
-                  }),
-              ChartButtons(
-                  buttonName: "30D",
-                  onPressed: () {
-                    callDataCharts(30);
-                  }),
-              ChartButtons(
-                  buttonName: "50D",
-                  onPressed: () {
-                    callDataCharts(50);
-                  }),
+              ...buttonChart.map(
+                (e) => Row(children: [
+                  chartButtons(
+                      e.buttonName.toString() + "D", e.buttonName.toInt())
+                ]),
+              )
             ],
           ),
         )

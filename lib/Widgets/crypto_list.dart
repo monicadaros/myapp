@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:myapp/Pages/details.dart';
 import 'package:myapp/Widgets/day_variation.dart';
 
 class CryptoCoins extends StatefulWidget {
@@ -62,7 +63,15 @@ class _CryptoCoinsState extends State<CryptoCoins> {
                             ),
                           ),
                           onTap: () {
-                            Navigator.pushNamed(context, '/bitcoin');
+                            Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                builder: (context) => DetailPage(
+                                    abbreviationCrypto: e.abbreviationCrypto,
+                                    nameCrypto: e.nameCrypto,
+                                    variationCrypto: e.variationCrypto),
+                              ),
+                            );
                           },
                         ),
                       ],
