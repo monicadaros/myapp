@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:myapp/Pages/sucess_convert.dart';
+import 'package:myapp/Widgets/chartbutton_list.dart';
 import 'package:myapp/Widgets/conversion_button.dart';
 import 'package:myapp/Widgets/my_app_bar.dart';
 import 'package:myapp/Widgets/value_crypto.dart';
@@ -40,6 +41,8 @@ class _ConversionCoinState extends State<ConversionCoin> {
 
   @override
   Widget build(BuildContext context) {
+    final buttonlist = ChartButtonList().buttonList;
+
     return Scaffold(
       appBar: PreferredSize(
           child: MyAppBar(pageName: pagename),
@@ -93,33 +96,35 @@ class _ConversionCoinState extends State<ConversionCoin> {
                   ],
                 ),
                 Row(mainAxisAlignment: MainAxisAlignment.center, children: [
-                  ConvertButton(
-                    buttonName: 25,
-                    valueCoin: ValueCoin(),
-                    onPressed: () {
-                      percentConvert(0.25);
-                    },
-                  ),
-                  ConvertButton(
-                    buttonName: 50,
-                    valueCoin: ValueCoin(),
-                    onPressed: () {
-                      percentConvert(0.5);
-                    },
-                  ),
-                  ConvertButton(
-                    buttonName: 75,
-                    valueCoin: ValueCoin(),
-                    onPressed: () {
-                      percentConvert(0.75);
-                    },
-                  ),
-                  ConvertButton(
-                    buttonName: 100,
-                    valueCoin: ValueCoin(),
-                    onPressed: () {
-                      percentConvert(1);
-                    },
+                  ...buttonlist.map(
+                    (e) => ConvertButton(
+                      buttonName: e.buttonName,
+                      valueCoin: ValueCoin(),
+                      onPressed: () {
+                        percentConvert(e.buttonName / 100);
+                      },
+                    ),
+                    // ConvertButton(
+                    //   buttonName: 50,
+                    //   valueCoin: ValueCoin(),
+                    //   onPressed: () {
+                    //     percentConvert(0.5);
+                    //   },
+                    // ),
+                    // ConvertButton(
+                    //   buttonName: 75,
+                    //   valueCoin: ValueCoin(),
+                    //   onPressed: () {
+                    //     percentConvert(0.75);
+                    //   },
+                    // ),
+                    // ConvertButton(
+                    //   buttonName: 100,
+                    //   valueCoin: ValueCoin(),
+                    //   onPressed: () {
+                    //     percentConvert(1);
+                    //   },
+                    // ),
                   ),
                 ]),
                 const Divider(),
