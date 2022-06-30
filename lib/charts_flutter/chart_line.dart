@@ -39,23 +39,9 @@ class _LineGraphicState extends State<LineGraphic> {
     });
   }
 
-  chartButtons(String buttonName, int numberSpots) {
-    return Padding(
-      padding: const EdgeInsets.symmetric(horizontal: 6),
-      child: OutlinedButton(
-          style: ButtonStyle(
-            backgroundColor: MaterialStateProperty.all(
-                const Color.fromARGB(255, 235, 231, 231)),
-          ),
-          onPressed: () {
-            callDataCharts(numberSpots);
-          },
-          child: Text(buttonName)),
-    );
-  }
-
   @override
   Widget build(BuildContext context) {
+    final valorCarteira = 1000;
     return Material(
       child: Column(children: [
         SfCartesianChart(
@@ -63,7 +49,7 @@ class _LineGraphicState extends State<LineGraphic> {
             primaryYAxis: NumericAxis(isVisible: false),
             backgroundColor: const Color.fromARGB(255, 235, 231, 231),
             title: ChartTitle(
-                text: ("R\$1000,00"),
+                text: ("R\$$valorCarteira,00"),
                 alignment: ChartAlignment.near,
                 textStyle: const TextStyle(
                     color: Colors.black,
@@ -84,12 +70,34 @@ class _LineGraphicState extends State<LineGraphic> {
           height: 30,
           child: ListView(
             scrollDirection: Axis.horizontal,
-            children: const [
-              ChartButtons(buttonName: "5D", onPressed:(){callDataCharts(5)}),
-              ChartButtons(buttonName: "10D", onPressed:(){10}),
-              ChartButtons(buttonName: "15D", onPressed:(){15}),
-              ChartButtons(buttonName: "30D", onPressed:(){30}),
-              ChartButtons(buttonName: "50D", onPressed:() {50}),
+
+            children: [
+              ChartButtons(
+                  buttonName: "5D",
+                  onPressed: () {
+                    callDataCharts(5);
+                  }),
+              ChartButtons(
+                  buttonName: "10D",
+                  onPressed: () {
+                    callDataCharts(10);
+                  }),
+              ChartButtons(
+                  buttonName: "15D",
+                  onPressed: () {
+                    callDataCharts(15);
+                  }),
+              ChartButtons(
+                  buttonName: "30D",
+                  onPressed: () {
+                    callDataCharts(30);
+                  }),
+              ChartButtons(
+                  buttonName: "50D",
+                  onPressed: () {
+                    callDataCharts(50);
+                  }),
+
             ],
           ),
         )

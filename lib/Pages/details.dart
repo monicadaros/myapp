@@ -46,88 +46,102 @@ class _DetailPageState extends State<DetailPage> {
               child: Card(
                 elevation: 20,
                 child: Column(
-                  mainAxisAlignment: MainAxisAlignment.start,
-                  crossAxisAlignment: CrossAxisAlignment.center,
-                  verticalDirection: VerticalDirection.down,
-                  children: [
-                    ListTile(
-                      title: const Text(
-                        "Moeda",
-                        style: TextStyle(fontSize: 40, color: Colors.black),
+                    mainAxisAlignment: MainAxisAlignment.start,
+                    crossAxisAlignment: CrossAxisAlignment.center,
+                    verticalDirection: VerticalDirection.down,
+                    children: [
+                      ListTile(
+                        title: const Text(
+                          "Moeda",
+                          style: TextStyle(fontSize: 40, color: Colors.black),
+                        ),
+                        subtitle: Text(
+                          widget.coinName,
+                          style: const TextStyle(
+                              fontSize: 30, color: Colors.black),
+                        ),
+                        trailing: IconButton(
+                            onPressed: () => _replace(!select),
+                            icon: select
+                                ? const Icon(Icons.show_chart)
+                                : const Icon(Icons.bar_chart)),
                       ),
-                      subtitle: Text(
-                        widget.coinName,
-                        style:
-                            const TextStyle(fontSize: 30, color: Colors.black),
+                      Center(
+                        child:
+                            select ? const BarGraphic() : const LineGraphic(),
                       ),
-                      trailing: IconButton(
-                          onPressed: () => _replace(!select),
-                          icon: select
-                              ? const Icon(Icons.show_chart)
-                              : const Icon(Icons.bar_chart)),
-                    ),
-                    Center(
-                      child: select ? const BarGraphic() : const LineGraphic(),
-                    ),
-                    const ListTile(
-                      title: Text(
-                        "Informações",
-                        style: TextStyle(fontSize: 30, color: Colors.black),
-                      ),
-                    ),
-                    const Divider(),
-                    ListTile(
-                      title: Text(
-                        widget.coinName,
-                        style: const TextStyle(
-                          fontSize: 20,
-                          fontWeight: FontWeight.bold,
-                          color: Color.fromARGB(255, 85, 83, 83),
+                      const ListTile(
+                        title: Text(
+                          "Informações",
+                          style: TextStyle(fontSize: 30, color: Colors.black),
                         ),
                       ),
-                      subtitle: const Text("Valor Atual"),
-                      trailing: const Text("R\$20.0000,00"),
-                    ),
-                    ListTile(
-                      title: const Text(
-                        "Cap de Mercado",
-                        style: TextStyle(
+                      const Divider(),
+                      ListTile(
+                        title: Text(
+                          widget.coinName,
+                          style: const TextStyle(
                             fontSize: 20,
-                            color: Color.fromARGB(255, 85, 83, 83)),
-                      ),
-                      trailing: DecoratedBox(
-                        decoration: BoxDecoration(
-                          color: crypto[0].variationCrypto > 0
-                              ? Colors.green
-                              : Colors.red,
-                          borderRadius: BorderRadius.circular(20),
+                            fontWeight: FontWeight.bold,
+                            color: Color.fromARGB(255, 85, 83, 83),
+                          ),
                         ),
-                        child: Text(
-                          crypto[0].variationCrypto.toString() + "%",
-                          textAlign: TextAlign.center,
+                        subtitle: const Text("Valor Atual"),
+                        trailing: const Text("R\$20.0000,00"),
+                      ),
+                      ListTile(
+                        title: const Text(
+                          "Cap de Mercado",
+                          style: TextStyle(
+                              fontSize: 20,
+                              color: Color.fromARGB(255, 85, 83, 83)),
+                        ),
+                        trailing: DecoratedBox(
+                          decoration: BoxDecoration(
+                            color: crypto[0].variationCrypto > 0
+                                ? Colors.green
+                                : Colors.red,
+                            borderRadius: BorderRadius.circular(20),
+                          ),
+                          child: Text(
+                            crypto[0].variationCrypto.toString() + "%",
+                            textAlign: TextAlign.center,
+                          ),
                         ),
                       ),
-                    ),
-                    const ListTile(
-                      title: Text(
-                        "Valor Mínimo",
-                        style: TextStyle(
-                            fontSize: 20,
-                            color: Color.fromARGB(255, 85, 83, 83)),
+                      const ListTile(
+                        title: Text(
+                          "Valor Mínimo",
+                          style: TextStyle(
+                              fontSize: 20,
+                              color: Color.fromARGB(255, 85, 83, 83)),
+                        ),
+                        trailing: Text("R\$0,02"),
                       ),
-                      trailing: Text("R\$0,02"),
-                    ),
-                    const ListTile(
-                      title: Text(
-                        "Valor Máximo",
-                        style: TextStyle(
-                            fontSize: 20,
-                            color: Color.fromARGB(255, 85, 83, 83)),
+                      const ListTile(
+                        title: Text(
+                          "Valor Máximo",
+                          style: TextStyle(
+                              fontSize: 20,
+                              color: Color.fromARGB(255, 85, 83, 83)),
+                        ),
+                        trailing: Text("R\$0,47"),
                       ),
-                      trailing: Text("R\$0,47"),
-                    )
-                  ],
-                ),
+                      OutlinedButton(
+                        style: ButtonStyle(
+                            alignment: Alignment.center,
+                            backgroundColor:
+                                MaterialStateProperty.all(Colors.pink)),
+                        onPressed: () {
+                          Navigator.pushNamed(context, '/conversion');
+                        },
+                        child: const Text(
+                          "Converter Moeda",
+                          style: TextStyle(
+                              color: Color.fromARGB(255, 255, 255, 255)),
+                        ),
+                      ),
+                    ]),
               ),
             ),
           ),
